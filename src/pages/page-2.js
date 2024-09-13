@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 import "../style/global.css"
 
 const SecondPage = () => (
-  <Layout>
+
     <div id="___gatsby">
       <div style={{ outline: "none" }} tabIndex={-1} id="gatsby-focus-wrapper">
         <div className="x__asset-page">
@@ -320,20 +320,8 @@ const SecondPage = () => (
                     aria-hidden="true"
                     style={{ width: "100%", paddingBottom: "56.2429696287964%" }}
                   />
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcSet="/asset-page/img/btc/header-bg-ssize.webp 640w,/asset-page/img/btc/header-bg-msize.webp 1080w,/asset-page/img/btc/header-bg-lsize.webp 1600w"
-                      sizes="(max-width: 640px) 100vw,(max-width: 1080px) 100vw,1600px"
-                    />
-                    <source
-                      srcSet="/asset-page/img/btc/header-bg-ssize.jpg 640w,/asset-page/img/btc/header-bg-msize.jpg 1080w,/asset-page/img/btc/header-bg-lsize.jpg 1600w"
-                      sizes="(max-width: 640px) 100vw,(max-width: 1080px) 100vw,1600px"
-                    />
-                    <img
-                      sizes="(max-width: 640px) 100vw,(max-width: 1080px) 100vw,1600px"
-                      srcSet="/asset-page/img/btc/header-bg-ssize.jpg 640w,/asset-page/img/btc/header-bg-msize.jpg 1080w,/asset-page/img/btc/header-bg-lsize.jpg 1600w"
-                      src="/asset-page/img/btc/header-bg-lsize.jpg"
+                   <img
+                      src="/images/header-bg-lsize.jpg"
                       alt="Best Bitcoin Wallet | BTC Wallet App"
                       loading="lazy"
                       style={{
@@ -348,7 +336,6 @@ const SecondPage = () => (
                         transition: "opacity 1600ms"
                       }}
                     />
-                  </picture>
                 </div>
               </div>
             </div>
@@ -682,20 +669,8 @@ const SecondPage = () => (
                       aria-hidden="true"
                       style={{ width: "100%", paddingBottom: "70.57163020465772%" }}
                     />
-                    <picture>
-                      <source
-                        type="image/webp"
-                        srcSet="/asset-page/img/btc/mobile-screens-lsize.webp 1600w"
-                        sizes="1600px"
-                      />
-                      <source
-                        srcSet="/asset-page/img/btc/mobile-screens-lsize.png 1600w"
-                        sizes="1600px"
-                      />
-                      <img
-                        sizes="1600px"
-                        srcSet="/asset-page/img/btc/mobile-screens-lsize.png 1600w"
-                        src="/asset-page/img/btc/mobile-screens-lsize.png"
+                    <img
+                         src="/asset-page/img/btc/mobile-screens-lsize.png"
                         alt='Exodus Bitcoin<span class="x-break-sm"></span> Mobile Wallet'
                         loading="lazy"
                         style={{
@@ -710,7 +685,6 @@ const SecondPage = () => (
                           transition: "opacity 1000ms"
                         }}
                       />
-                    </picture>
                   </div>
                 </div>
               </div>
@@ -726,7 +700,7 @@ const SecondPage = () => (
                 </p>
               </div>
             </section>
-            <section className="x__asset-page__desktop">
+            <section className="x__asset-page__desktop x-active">
               <div className="x__asset-page__desktop__img-container">
                 <div className="x__asset-page__desktop__img">
                   <div
@@ -737,19 +711,7 @@ const SecondPage = () => (
                       aria-hidden="true"
                       style={{ width: "100%", paddingBottom: "64.47453255963894%" }}
                     />
-                    <picture>
-                      <source
-                        type="image/webp"
-                        srcSet="/asset-page/img/btc/desktop-screen-ssize.webp 640w,/asset-page/img/btc/desktop-screen-msize.webp 1080w,/asset-page/img/btc/desktop-screen-lsize.webp 1600w"
-                        sizes="(max-width: 640px) 100vw,(max-width: 1080px) 100vw,1600px"
-                      />
-                      <source
-                        srcSet="/asset-page/img/btc/desktop-screen-ssize.png 640w,/asset-page/img/btc/desktop-screen-msize.png 1080w,/asset-page/img/btc/desktop-screen-lsize.png 1600w"
-                        sizes="(max-width: 640px) 100vw,(max-width: 1080px) 100vw,1600px"
-                      />
-                      <img
-                        sizes="(max-width: 640px) 100vw,(max-width: 1080px) 100vw,1600px"
-                        srcSet="/asset-page/img/btc/desktop-screen-ssize.png 640w,/asset-page/img/btc/desktop-screen-msize.png 1080w,/asset-page/img/btc/desktop-screen-lsize.png 1600w"
+                     <img
                         src="/asset-page/img/btc/desktop-screen-lsize.png"
                         alt='Exodus Bitcoin<span class="x-break-sm"></span> Desktop Wallet'
                         loading="lazy"
@@ -765,7 +727,6 @@ const SecondPage = () => (
                           transition: "opacity 1000ms"
                         }}
                       />
-                    </picture>
                   </div>
                 </div>
               </div>
@@ -781,7 +742,7 @@ const SecondPage = () => (
                 </p>
               </div>
             </section>
-            <section className="x__asset-page__web3">
+            <section className="x__asset-page__web3 x-active">
               <div className="x__asset-page__web3__img-container">
                 <div className="x__asset-page__web3__img">
                   <div
@@ -792,19 +753,7 @@ const SecondPage = () => (
                       aria-hidden="true"
                       style={{ width: "100%", paddingBottom: "65.74621959237344%" }}
                     />
-                    <picture>
-                      <source
-                        type="image/webp"
-                        srcSet="/asset-page/img/btc/web3-screens-lsize.webp 1600w"
-                        sizes="1600px"
-                      />
-                      <source
-                        srcSet="/asset-page/img/btc/web3-screens-lsize.png 1600w"
-                        sizes="1600px"
-                      />
-                      <img
-                        sizes="1600px"
-                        srcSet="/asset-page/img/btc/web3-screens-lsize.png 1600w"
+                     <img
                         src="/asset-page/img/btc/web3-screens-lsize.png"
                         alt='Exodus Bitcoin Web3<span class="x-break-sm"></span> Browser Extension'
                         loading="lazy"
@@ -816,11 +765,10 @@ const SecondPage = () => (
                           height: "100%",
                           objectFit: "cover",
                           objectPosition: "center center",
-                          opacity: 0,
+                          opacity: 1, // ORIGINAL: opacity: 0
                           transition: "opacity 1000ms"
                         }}
                       />
-                    </picture>
                   </div>
                 </div>
               </div>
@@ -837,7 +785,7 @@ const SecondPage = () => (
                 </p>
               </div>
             </section>
-            <section className="x__asset-page__about">
+            <section className="x__asset-page__about x-active">
               <div className="x__asset-page__about__content">
                 <div className="x__asset-page__about__heading-wrapper">
                   <i className="x__asset-icon__wrapper">
@@ -879,7 +827,7 @@ const SecondPage = () => (
                 </ul>
               </div>
             </section>
-            <section className="x__asset-page__chart">
+            <section className="x__asset-page__chart x-active">
               <div className="x__asset-page__chart__content">
                 <div className="container no-gutters x-components-asset-page-stats__container">
                   <div className="row no-gutters mt-5 x-components-asset-page-stats__container-row">
@@ -1077,7 +1025,7 @@ const SecondPage = () => (
                 </div>
               </div>
             </section>
-            <section className="x__asset-page__summary">
+            <section className="x__asset-page__summary x-active">
               <div className="x__asset-page__summary__content">
                 <ul className="x__asset-page__summary__list">
                   <li className="x__asset-page__summary__list-item">
@@ -2462,23 +2410,16 @@ const SecondPage = () => (
                             inset: 0
                           }}
                         ></div>
-                        <picture>
-                          <source
-                            type="image/webp"
-                            sizes="(min-width: 156px) 156px, 100vw"
-                            srcSet="/static/62a09178edfd5fe0b46c9c1f7bb26718/574d0/exodus-logo.webp 39w,/static/62a09178edfd5fe0b46c9c1f7bb26718/341c6/exodus-logo.webp 78w,/static/62a09178edfd5fe0b46c9c1f7bb26718/2bf61/exodus-logo.webp 156w"
-                          />
-                          <img
+                         <img
                             data-main-image=""
                             style={{ opacity: 1 }}
                             sizes="(min-width: 156px) 156px, 100vw"
                             decoding="async"
                             loading="lazy"
                             alt="Exodus Logo"
-                            src="/static/62a09178edfd5fe0b46c9c1f7bb26718/b7ccd/exodus-logo.svg"
-                            srcSet="/static/62a09178edfd5fe0b46c9c1f7bb26718/7cb82/exodus-logo.svg 39w,/static/62a09178edfd5fe0b46c9c1f7bb26718/703f4/exodus-logo.svg 78w,/static/62a09178edfd5fe0b46c9c1f7bb26718/b7ccd/exodus-logo.svg 156w"
+                            src="/asset-page/img/btc/exodus-logo.webp"
+                          
                           />
-                        </picture>
                       </div>
                     </div>
                     <div className="x__copyright__copy">
@@ -2700,7 +2641,6 @@ const SecondPage = () => (
       />
     </div>
 
-  </Layout>
 )
 
 export const Head = () => <Seo title="Page two" />
