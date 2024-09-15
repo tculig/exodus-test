@@ -1,10 +1,29 @@
 import React from 'react'
 import { Container, Dropdown } from 'react-bootstrap'
 import "./style.css"
+import { graphql, useStaticQuery } from 'gatsby'
 
 const BitcoinWalletHeader = () => {
+  const { allContentfulBitcoinWallet } = useStaticQuery(
+    graphql`
+query {
+  allContentfulBitcoinWallet {
+      nodes {
+        headerTitle
+        headerSubtitle
+           bitcoinIcon {
+     
+        gatsbyImageData
+      }
+ 
+      }
+  }
+}
+    `
+  );
+  console.log(allContentfulBitcoinWallet)
   return (
-    <header className="x__asset-page__header x-active">
+    <header>
       <Container className="x__asset-page__header__content">
         <i className="x__asset-icon__wrapper">
           <img
@@ -16,17 +35,13 @@ const BitcoinWalletHeader = () => {
             className="x__asset-icon x__asset-icon--largest"
           />
         </i>
-        <h1 className="x__asset-page__header__heading">
-          Exodus
-          <span className="x-break-sm" /> Bitcoin
-          <span className="x-break-sm" /> Wallet
+        <h1 className="x__asset-page__header__heading x-break-sm">
+          Exodus Bitcoin Wallet
         </h1>
-        <h2 className="x__asset-page__header__subheading">
-          Send, Receive, and Swap
-          <span className="x-break-sm" /> With Exodus' Free and
-          <span className="x-break-sm" /> Secure BTC Wallet
+        <h2 className="x__asset-page__header__subheading x-break-sm">
+          Send, Receive, and Swap With Exodus' Free and Secure BTC Wallet
         </h2>
-        <div className="x__asset-page__header__actions">
+        <div className="x__asset-page__header__actions x-break-sm">
           <Dropdown className="x__platform-dropdown x__platform-dropdown--Desktop">
             <Dropdown.Toggle className="x__toggle" style={{ background: "linear-gradient(to right, #FFC82D,#FE9D39)" }}>
               <i className="x__toggle__icon">
