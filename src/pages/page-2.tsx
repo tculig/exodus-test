@@ -3,13 +3,17 @@ import * as React from "react"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-import  Topbar  from "../components/Topbar"
+import Topbar from "../components/Topbar"
 import Header from "../components/Header"
 import HeroPanel from "../components/HeroPanel"
+import { graphql } from "gatsby"
+import SummaryPanel from "../components/SummaryPanel"
 
 
-const SecondPage = () => (
-  <Layout>
+const SecondPage = ({ data, location }) => {
+
+  return (
+   <Layout>
     <div id="___gatsby">
       <div style={{ outline: "none" }} tabIndex={-1} id="gatsby-focus-wrapper">
         <div className="x__asset-page">
@@ -18,359 +22,35 @@ const SecondPage = () => (
             <div
               className="x__asset-page__background-container x__asset-page__background"
             >
-       
-  
-                  <div
-                    aria-hidden="true"
-                    style={{ width: "100%", paddingBottom: "56.2429696287964%" }}
-                  />
-                  <img
-                    src="/images/header-bg-lsize.jpg"
-                    alt="Best Bitcoin Wallet | BTC Wallet App"
-                    loading="lazy"
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center center",
-                      opacity: 1,
-                      transition: "opacity 1600ms"
-                    }}
-                  />
-              
-       
+
+
+              <div
+                aria-hidden="true"
+                style={{ width: "100%", paddingBottom: "56.2429696287964%" }}
+              />
+              <img
+                src="/images/header-bg-lsize.jpg"
+                alt="Best Bitcoin Wallet | BTC Wallet App"
+                loading="lazy"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                  opacity: 1,
+                  transition: "opacity 1600ms"
+                }}
+              />
+
+
             </div>
-                    <Header/>
-                    <HeroPanel/>
-           
-            <section className="x__asset-page__desktop x-active">
-              <div className="x__asset-page__desktop__img-container">
-                <div className="x__asset-page__desktop__img">
-                  <div
-                    className=" gatsby-image-wrapper"
-                    style={{ position: "relative", overflow: "hidden" }}
-                  >
-                    <div
-                      aria-hidden="true"
-                      style={{ width: "100%", paddingBottom: "64.47453255963894%" }}
-                    />
-                    <img
-                      src="/asset-page/img/btc/desktop-screen-lsize.png"
-                      alt='Exodus Bitcoin<span class="x-break-sm"></span> Desktop Wallet'
-                      loading="lazy"
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center center",
-                        opacity: 1,
-                        transition: "opacity 1000ms"
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="x__asset-page__desktop__content">
-                <h2 className="x__asset-page__desktop__heading">
-                  Exodus Bitcoin
-                  <span className="x-break-sm" />
-                  Desktop Wallet
-                </h2>
-                <p className="x__asset-page__desktop__subheading">
-                  Send and receive BTC easily with a Bitcoin BTC address or
-                  scannable QR code. Learn how to Send and Receive in Exodus.
-                </p>
-              </div>
-            </section>
-            <section className="x__asset-page__web3 x-active">
-              <div className="x__asset-page__web3__img-container">
-                <div className="x__asset-page__web3__img">
-                  <div
-                    className=" gatsby-image-wrapper"
-                    style={{ position: "relative", overflow: "hidden" }}
-                  >
-                    <div
-                      aria-hidden="true"
-                      style={{ width: "100%", paddingBottom: "65.74621959237344%" }}
-                    />
-                    <img
-                      src="/asset-page/img/btc/web3-screens-lsize.png"
-                      alt='Exodus Bitcoin Web3<span class="x-break-sm"></span> Browser Extension'
-                      loading="lazy"
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center center",
-                        opacity: 1, // ORIGINAL: opacity: 0
-                        transition: "opacity 1000ms"
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="x__asset-page__web3__content">
-                <h2 className="x__asset-page__web3__heading">
-                  Exodus Bitcoin Web3
-                  <span className="x-break-sm" />
-                  Browser Extension
-                </h2>
-                <p className="x__asset-page__web3__subheading">
-                  Connect your Bitcoin wallet to the world of of DeFi and Web3 on
-                  Chrome and Brave browsers. Manage and swap BTC on multiple
-                  networks like Ethereum, Solana, Tron, Polygon, and many more.
-                </p>
-              </div>
-            </section>
-            <section className="x__asset-page__about x-active">
-              <div className="x__asset-page__about__content">
-                <div className="x__asset-page__about__heading-wrapper">
-                  <i className="x__asset-icon__wrapper">
-                    <img
-                      className="x__asset-icon x__asset-icon--larger"
-                      src="data:image/svg+xml,%3csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3clinearGradient x1='115.077%25' y1='77.227%25' x2='27.227%25' y2='34.923%25' id='a'%3e%3cstop stop-color='%23FE9D39' offset='0%25'/%3e%3cstop stop-color='%23FFC82D' offset='100%25'/%3e%3c/linearGradient%3e%3c/defs%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath d='m22 1.155 13.32 7.69a4 4 0 0 1 2 3.464v15.382a4 4 0 0 1-2 3.464L22 38.845a4 4 0 0 1-4 0l-13.32-7.69a4 4 0 0 1-2-3.464V12.309a4 4 0 0 1 2-3.464L18 1.155a4 4 0 0 1 4 0z' fill='url(%23a)'/%3e%3cpath d='M24.198 26.417c-1.176.425-2.267.264-2.752.2a16.982 16.982 0 0 1-1.074-.194l-.715 2.667-1.642-.44.703-2.624-1.25-.335-.703 2.624-1.642-.44.703-2.624-3.23-.866.866-1.882.982.264c.33.088.476.094.649.001.173-.094.257-.285.3-.446l1.82-6.794c.115-.426.111-.55-.026-.821-.137-.272-.59-.424-.849-.493l-.949-.255.457-1.704 3.23.865.705-2.632 1.642.44-.705 2.632 1.25.335.706-2.632 1.642.44-.714 2.664c1.204.404 2.053.881 2.69 1.682.825 1.035.418 2.34.31 2.649-.107.308-.407.877-.788 1.194-.381.318-1.161.528-1.161.528s.752.383 1.2.955c.446.572.662 1.427.346 2.51-.314 1.084-.827 2.106-2.001 2.532zm-3.408-5.7c-.799-.271-1.856-.497-1.856-.497l-.944 3.522s1.083.315 1.827.457c.743.141 1.544.159 1.976.052.43-.107.97-.308 1.186-1.113.216-.806-.23-1.287-.497-1.523-.265-.236-.893-.626-1.692-.897zm-.053-1.765c.605.137 1.279.17 1.807.04s.896-.46 1.041-1.062c.145-.602-.118-1.216-.738-1.604-.62-.388-1.068-.525-1.58-.67-.512-.145-1.046-.24-1.046-.24l-.85 3.17s.762.228 1.366.366z' fill='white'/%3e%3c/g%3e%3c/svg%3e"
-                      alt="Bitcoin (BTC)"
-                    />
-                  </i>
-                  <h2 className="x__asset-page__about__heading">
-                    About Bitcoin (BTC)
-                  </h2>
-                </div>
-                <h3 className="x__asset-page__about__subheading">
-                  The cryptocurrency that started it all, Bitcoin is the first
-                  digital currency to solve the “double spending” or counterfeiting
-                  problem. This is done without a central authority like a bank or a
-                  government, making Bitcoin truly peer-to-peer.
-                </h3>
-                <ul className="x__asset-page__about__tags">
-                  <li
-                    className="x__asset-page__about__tag"
-                    style={{ color: "#FFC82D", background: "#FFC82D15" }}
-                  >
-                    stablecoin
-                  </li>
-                  <li
-                    className="x__asset-page__about__tag"
-                    style={{ color: "#FFC82D", background: "#FFC82D15" }}
-                  >
-                    backed
-                  </li>
-                  <li
-                    className="x__asset-page__about__tag"
-                    style={{ color: "#FFC82D", background: "#FFC82D15" }}
-                  >
-                    transparent
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section className="x__asset-page__chart x-active">
-              <div className="x__asset-page__chart__content">
-                <div className="container no-gutters x-components-asset-page-stats__container">
-                  <div className="row no-gutters mt-5 x-components-asset-page-stats__container-row">
-                    <div className="x-components-asset-page-stats__currencyNameContainer x-components-asset-page-stats__price">
-                      <div className="x-components-asset-page-stats__currencyName">
-                        $59,825.40
-                      </div>
-                    </div>
-                    <div className="x-components-asset-page-stats__currencyChangeContainer">
-                      <div className="x-components-asset-page-stats__change x-components-asset-page-stats__changeGreen">
-                        <span className="x-components-asset-page-stats__change-percent">
-                          2.91%
-                        </span>
-                      </div>
-                      <div className="x-components-asset-page-stats__currencySymbolSubText">
-                        24h change
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row no-gutters x-components-asset-page-stats__graph">
-                    <div className="col-12">
-                      <div style={{ position: "relative" }}>
-                        <div className="mb-3">
-                          <div className="x-components-asset-page-graph__time-selectors">
-                            <div className="x-components-asset-page-graph__time-selector">
-                              <a href="#" title="One Day" >
-                                1D
-                              </a>
-                            </div>
-                            <div className="x-components-asset-page-graph__time-selector x-components-asset-page-graph__time-selector--selected">
-                              <a href="#" title="One Week">
-                                1W
-                              </a>
-                            </div>
-                            <div className="x-components-asset-page-graph__time-selector">
-                              <a href="#" title="One Month">
-                                1M
-                              </a>
-                            </div>
-                            <div className="x-components-asset-page-graph__time-selector">
-                              <a href="#" title="Three Months">
-                                3M
-                              </a>
-                            </div>
-                            <div className="x-components-asset-page-graph__time-selector">
-                              <a href="#" title="Six Months">
-                                6M
-                              </a>
-                            </div>
-                            <div className="x-components-asset-page-graph__time-selector">
-                              <a href="#" title="One Year">
-                                1Y
-                              </a>
-                            </div>
-                            <div className="x-components-asset-page-graph__time-selector">
-                              <a href="#" title="Two Years">
-                                2Y
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <canvas
-                          id="x_chart"
-                          style={{ width: 1155, height: 230 }}
-                          width={1155}
-                          height={230}
-                        />
-                        <div
-                          className="erd_scroll_detection_container erd_scroll_detection_container_animation_active"
-                          style={{
-                            visibility: "hidden",
-                            display: "inline",
-                            width: 0,
-                            height: 0,
-                            zIndex: -1,
-                            overflow: "hidden",
-                            margin: 0,
-                            padding: 0
-                          }}
-                        >
-                          <div
-                            dir="ltr"
-                            className="erd_scroll_detection_container"
-                            style={{
-                              position: "absolute",
-                              flex: "0 0 auto",
-                              overflow: "hidden",
-                              zIndex: -1,
-                              visibility: "hidden",
-                              width: "100%",
-                              height: "100%",
-                              left: 0,
-                              top: 0
-                            }}
-                          >
-                            <div
-                              className="erd_scroll_detection_container"
-                              style={{
-                                position: "absolute",
-                                flex: "0 0 auto",
-                                overflow: "hidden",
-                                zIndex: -1,
-                                visibility: "hidden",
-                                inset: "-18px -17px -17px -18px"
-                              }}
-                            >
-                              <div
-                                style={{
-                                  position: "absolute",
-                                  flex: "0 0 auto",
-                                  overflow: "scroll",
-                                  zIndex: -1,
-                                  visibility: "hidden",
-                                  width: "100%",
-                                  height: "100%"
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    position: "absolute",
-                                    left: 0,
-                                    top: 0,
-                                    width: 1200,
-                                    height: 359
-                                  }}
-                                ></div>
-                              </div>
-                              <div
-                                style={{
-                                  position: "absolute",
-                                  flex: "0 0 auto",
-                                  overflow: "scroll",
-                                  zIndex: -1,
-                                  visibility: "hidden",
-                                  width: "100%",
-                                  height: "100%"
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    position: "absolute",
-                                    width: "200%",
-                                    height: "200%"
-                                  }}
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row mt-5 x-components-asset-page-stats__bar">
-                    <div className="col-6 col-md-2 x-components-asset-page-stats__tags">
-                      <div className="x-components-asset-page-stats__label">
-                        Market Cap
-                      </div>
-                      <div className="x-components-asset-page-stats__stat">
-                        1.2T USD
-                      </div>
-                    </div>
-                    <div className="col-6 col-md-2 x-components-asset-page-stats__tags">
-                      <div className="x-components-asset-page-stats__label">
-                        24hr Volume
-                      </div>
-                      <div className="x-components-asset-page-stats__stat">
-                        30.9B USD
-                      </div>
-                    </div>
-                    <div className="col-6 col-md-2 x-components-asset-page-stats__tags">
-                      <div className="x-components-asset-page-stats__label">
-                        24hr Low
-                      </div>
-                      <div className="x-components-asset-page-stats__stat">...</div>
-                    </div>
-                    <div className="col-6 col-md-2 x-components-asset-page-stats__tags">
-                      <div className="x-components-asset-page-stats__label">
-                        24hr High
-                      </div>
-                      <div className="x-components-asset-page-stats__stat">...</div>
-                    </div>
-                    <div className="col-6 col-md-2 x-components-asset-page-stats__tags">
-                      <div className="x-components-asset-page-stats__label">
-                        52 weeks Low
-                      </div>
-                      <div className="x-components-asset-page-stats__stat">...</div>
-                    </div>
-                    <div className="col-6 col-md-2 x-components-asset-page-stats__tags">
-                      <div className="x-components-asset-page-stats__label">
-                        52 weeks High
-                      </div>
-                      <div className="x-components-asset-page-stats__stat">...</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <Header />
+            {data?.allContentfulHeroPanel?.nodes?.map((node,index)=><HeroPanel data={node} key={index}/>)}
+
+            <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes}/>
             <section className="x__asset-page__summary x-active">
               <div className="x__asset-page__summary__content">
                 <ul className="x__asset-page__summary__list">
@@ -1246,36 +926,6 @@ const SecondPage = () => (
           </main>
           <footer className="x__footer">
             <div className="x__footer__content">
-              <div className="x__trustpilot">
-                <div
-                  className="x__trustpilot__widget trustpilot-widget"
-                  id="trustpilot-widget"
-                  data-locale="en-US"
-                  data-font-family="Roboto"
-                  data-template-id="5419b6ffb0d04a076446a9af"
-                  data-businessunit-id="5c9d1556164d370001825424"
-                  data-style-height="20px"
-                  data-style-width="100%"
-                  data-theme="dark"
-                  data-tags="SelectedReview"
-                  data-stars={5}
-                  style={{ position: "relative" }}
-                >
-                  <iframe
-                    title="Customer reviews powered by Trustpilot"
-                    loading="lazy"
-                    src="https://widget.trustpilot.com/trustboxes/5419b6ffb0d04a076446a9af/index.html?templateId=5419b6ffb0d04a076446a9af&businessunitId=5c9d1556164d370001825424#locale=en-US&fontFamily=Roboto&styleHeight=20px&styleWidth=100%25&theme=dark&tags=SelectedReview&stars=5"
-                    style={{
-                      position: "relative",
-                      height: 20,
-                      width: "100%",
-                      borderStyle: "none",
-                      display: "block",
-                      overflow: "hidden"
-                    }}
-                  />
-                </div>
-              </div>
               <div className="x__footer__content-top">
                 <div className="x__footer-navigation" id="footernav">
                   <div className="x__footer-navigation-col">
@@ -1653,34 +1303,45 @@ const SecondPage = () => (
                 </div>
               </div>
             </div>
-            <link
-              href="https://widget.intercom.io"
-              rel="preconnect"
-              crossOrigin=""
-            />
           </footer>
         </div>
       </div>
-      <div
-        id="gatsby-announcer"
-        style={{
-          position: "absolute",
-          top: 0,
-          width: 1,
-          height: 1,
-          padding: 0,
-          overflow: "hidden",
-          clip: "rect(0, 0, 0, 0)",
-          whiteSpace: "nowrap",
-          border: 0
-        }}
-        aria-live="assertive"
-        aria-atomic="true"
-      />
     </div>
   </Layout>
-)
+)}
 
 export const Head = () => <Seo title="Page two" description={undefined} children={undefined} />
 
 export default SecondPage
+
+
+export const pageQuery = graphql`
+query {
+  allContentfulHeroPanel(sort: {order: ASC}) {
+    nodes {
+      id
+      title
+      hasBackground
+      text {
+        text
+      }
+      heroImage {
+        gatsbyImageData(layout: CONSTRAINED, resizingBehavior: SCALE, height: 600)
+      }
+    }
+  }
+  allContentfulSummaryPanel(sort: {order: ASC}) {
+    nodes {
+      id
+      title
+      text {
+        text
+      }
+      previewImage {
+        publicUrl
+        url
+      }
+    }
+  }
+}
+  ` 

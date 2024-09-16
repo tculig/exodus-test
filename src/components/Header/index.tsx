@@ -4,24 +4,24 @@ import "./style.css"
 import { graphql, useStaticQuery } from 'gatsby'
 
 const BitcoinWalletHeader = () => {
-  const { allContentfulBitcoinWallet } = useStaticQuery(
+ /* const { allContentfulBitcoinWallet } = useStaticQuery(
     graphql`
-query {
-  allContentfulBitcoinWallet {
-      nodes {
-        headerTitle
-        headerSubtitle
-           bitcoinIcon {
-     
-        gatsbyImageData
-      }
- 
-      }
-  }
-}
+        query {
+          allContentfulBitcoinWallet {
+              nodes {
+                headerTitle
+                headerSubtitle
+                  bitcoinIcon {
+            
+                gatsbyImageData
+              }
+        
+              }
+          }
+        }
     `
   );
-  console.log(allContentfulBitcoinWallet)
+  console.log(allContentfulBitcoinWallet)*/
   return (
     <header>
       <Container className="x__asset-page__header__content">
