@@ -19,7 +19,7 @@ interface Props {
 
 const AssetPageMobile = ({data}:Props) => {
   return (
-    <section className="x__asset-page__mobile x-active">
+    <section className="t-asset-page-mobile x-active">
       <Container>
         <Row>
          <Col className='center-content'>
@@ -32,12 +32,12 @@ const AssetPageMobile = ({data}:Props) => {
                 </div>
           </Col>
         </Row>
-        <Row className="x__asset-page__mobile__content">
+        <Row className="t-asset-page-mobile-content">
         <Col className='center-content'>
-            <h2 className="x__asset-page__mobile__heading">
+            <h2 className="t-asset-page-mobile-heading">
               {data.title}
             </h2>
-            <p className="x__asset-page__mobile__subheading">
+            <p className="t-asset-page-mobile-subheading">
               {data.text.text}
             </p>
             </Col>

@@ -14,13 +14,13 @@ const SecondPage = ({ data, location }) => {
 
   return (
    <Layout>
-    <div id="___gatsby">
+    <div id="-_gatsby">
       <div style={{ outline: "none" }} tabIndex={-1} id="gatsby-focus-wrapper">
-        <div className="x__asset-page">
+        <div className="t-asset-page">
           <Topbar />
           <main className="x">
             <div
-              className="x__asset-page__background-container x__asset-page__background"
+              className="t-asset-page-background-container t-asset-page-background"
             >
               <div
                 aria-hidden="true"

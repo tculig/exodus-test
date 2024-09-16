@@ -1,6 +1,5 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import "./style.css"
 import SummaryPanelItem, { type SummaryPanelItemProps } from '../SummaryPanelItem';
 
@@ -10,13 +9,12 @@ interface Props {
 
 const AssetPageMobile = ({nodes}:Props) => {
   return (
-    <section className="t__summary_section">
+    <section className="t-summary_section">
       <Container>
       <Row>
         {nodes.map((node,index)=>{
-          // const RowWrapper:FC<PropsWithChildren> = ({children})=>index%3==0?<Row>{children}</>:<>{children}</>;
           return (
-            <Col key={index} md={4} className="t__summary__list-item">
+            <Col key={index} md={4} className="t-summary-list-item">
                 <SummaryPanelItem data={node}/>
             </Col>
           );

@@ -4,10 +4,10 @@ import "./style.css"
 
 const MenuItem = ({ title, description, href, target }) => (
 
-  <NavDropdown.Item href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined} className="x__link">
+  <NavDropdown.Item href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined} className="t-link">
     <span>
-      <span className="x__title">{title}</span>
-      <span className="x__description">{description}</span>
+      <span className="t-title">{title}</span>
+      <span className="t-description">{description}</span>
     </span>
   </NavDropdown.Item>
 
@@ -17,10 +17,10 @@ const MenuSection = ({ title, items }) => (
   <NavDropdown
     title={title}
     id={`nav-dropdown-${title.toLowerCase()}`}
-    className='t__nav-dropdown'
+    className='t-nav-dropdown'
     style={{ display: "flex", flexDirection: "row" }}
   >
-    <i className="x__topbar-header-navigation__menu-container__picker" />
+    <i className="t-topbar-header-navigation-menu-container-picker" />
     {items.map((item, index) => (
       <MenuItem key={index} {...item} />
     ))}
@@ -49,9 +49,9 @@ const Header = () => {
   };
 
   return (
-    <div className="x__topbar-header__wrapper">
-      <Navbar variant="dark" expand="lg" id="headerNav" className="x__topbar-header">
-        <Container fluid className="x__topbar-header-content t__flex-between">
+    <div className="t-topbar-header-wrapper">
+      <Navbar variant="dark" expand="lg" id="headerNav" className="t-topbar-header">
+        <Container fluid className="t-topbar-header-content t-flex-between">
           <div>
             <img
               src="/images/exodus.svg"
@@ -65,14 +65,14 @@ const Header = () => {
           </div>
           <div>
             <Navbar.Collapse id="navbarSupportedContent" >
-              <Nav className="me-auto x__topbar-header-navigation-item">
+              <Nav className="me-auto t-topbar-header-navigation-item">
                 {Object.entries(menuItems).map(([section, items]) => (
                   <MenuSection key={section} title={section} items={items} />
                 ))}
               </Nav>
             </Navbar.Collapse>
           </div>
-          <a href="/download/" className="x__button x__download">Download</a>
+          <a href="/download/" className="t-button t-download">Download</a>
         </Container>
       </Navbar>
     </div>
