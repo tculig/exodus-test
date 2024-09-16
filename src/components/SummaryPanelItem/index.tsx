@@ -27,20 +27,10 @@ const AssetPageMobile = ({ data }: Props) => {
           <Col className='center-content'>
             <div style={{ maxHeight: "600px", display: "flex" }}>
               <img
-                src="/asset-page/img/btc/mobile-screens-lsize.png"
+                src={data.previewImage.url}
                 alt='Exodus Bitcoin<span class="x-break-sm"></span> Mobile Wallet'
                 loading="lazy"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center center",
-                  opacity: 1,
-                  transition: "opacity 1000ms"
-                }}
+              
               />
             </div>
           </Col>
