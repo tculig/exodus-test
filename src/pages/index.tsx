@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import Seo from "../components/seo"
 import Layout from "../components/layout"
 import Topbar from "../components/Topbar"
 import Header from "../components/Header"
@@ -53,8 +52,6 @@ const SecondPage = ({ data, location }) => {
     </div>
   </Layout>
 )}
-
-export const Head = () => <Seo title="Page two" description={undefined} children={undefined} />
 
 export default SecondPage
 
