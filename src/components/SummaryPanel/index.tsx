@@ -10,19 +10,20 @@ interface Props {
 
 const AssetPageMobile = ({nodes}:Props) => {
   return (
-    <section className="x__asset-page__mobile x-active">
+    <section className="t__summary_section">
       <Container>
       <Row>
         {nodes.map((node,index)=>{
           // const RowWrapper:FC<PropsWithChildren> = ({children})=>index%3==0?<Row>{children}</>:<>{children}</>;
           return (
-            <Col key={index} md={4}>
+            <Col key={index} md={4} className="t__summary__list-item">
                 <SummaryPanelItem data={node}/>
             </Col>
           );
         })}
          </Row>
       </Container>
+  
     </section>
   );
 };

@@ -1,0 +1,14 @@
+.x__button_signup{
+  width: 240px!important; 
+  height: 48px!important;
+}
+
+.t__footer-navigation__link {
+  color: #ffffff80;
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.87;
+  transition: all .2s linear;
+  padding: 0;
+}

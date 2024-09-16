@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import "./style.css"
 
 export interface SummaryPanelItemProps {
@@ -24,20 +23,19 @@ const AssetPageMobile = ({ data }: Props) => {
     <section className="x__asset-page__mobile x-active">
       <Container>
         <Row>
-          <Col className='center-content'>
+          <Col>
             <div style={{ maxHeight: "600px", display: "flex" }}>
               <img
                 src={data.previewImage.url}
-                alt='Exodus Bitcoin<span class="x-break-sm"></span> Mobile Wallet'
+                alt={"Summary"}
                 loading="lazy"
-              
               />
             </div>
           </Col>
         </Row>
-        <Row className="x__asset-page__mobile__content">
-          <Col className='center-content'>
-            <h2 className="x__asset-page__mobile__heading">
+        <Row>
+          <Col>
+            <h2 className="t_summary_title">
               {data.title}
             </h2>
             <p className="x__asset-page__mobile__subheading">

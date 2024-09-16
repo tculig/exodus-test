@@ -9,7 +9,6 @@ import * as React from "react"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../style/global.css"
-import "./layout.css"
 
 
 const Layout = ({ children }) => {
