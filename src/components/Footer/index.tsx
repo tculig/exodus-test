@@ -2,8 +2,21 @@ import React from 'react';
 import { Container, Row, Col, Nav, Collapse } from 'react-bootstrap';
 import "./style.css"
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from 'gatsby';
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    query {
+        allContentfulHeaderContent {
+          nodes {
+            exodusLogo {
+              url
+            }
+          }
+        }
+    }
+  `);
+
   return (
     <footer className="t-footer">
       <Container >
@@ -124,10 +137,10 @@ const Footer = () => {
             <Col md={6} xs={12}>
               <div className="t-copyright">
                 <div className="t-copyright-logo">
-                  <StaticImage
-                    alt="Exodus Logo"
-                    src="../../images/exodus-logo.jpg"
-                    style={{ maxWidth: '100%' }}
+                  <img
+                    src={data?.allContentfulHeaderContent?.nodes[0]?.exodusLogo?.url}
+                    alt="Exodus: Digital blockchain products"
+                    loading="lazy"
                   />
                 </div>
                 <div className="t-copyright-copy">
@@ -137,7 +150,7 @@ const Footer = () => {
                 </div>
               </div>
             </Col>
-           </Row>
+          </Row>
 
           {/* Footer Bottom */}
           <Row className="t-footer-content-bottom">

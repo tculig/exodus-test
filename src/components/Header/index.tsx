@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { Container, Dropdown } from 'react-bootstrap'
 import "./style.css"
 import { StaticImage } from 'gatsby-plugin-image'
