@@ -1,99 +1,114 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Tiho's notes about assignment
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## Hi there,
+I'm pleased to have this opportunity to audition for the role of Senior Front-End Engineer.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+Here are some notes about my code and thinking
 
-## 🚀 Quick start
+### Tech stack
 
-1.  **Create a Gatsby site.**
+Gatsby as is required in the assignment + React because its 2024 (and also required in the assignment). For styling I choose react-bootstrap, because I inspected the Exodus webpage and found some bootstrap classes. Though it would be interesting to explore. In the past I've worked extensively with material-ui and tailwind. 
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+### Code organization
 
-1.  **Start developing.**
+I choose to split the page into the following components: Topbar, Header, HeroPanel, SummaryPanel, SummaryPanelItem and Footer. The really reusable ones here are HeroPanel and SummaryPanel. CSS is in a style.css file next to the index.tsx file in each folder. 
 
-    Navigate into your new site’s directory and start it up.
+### Design 
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+Its as pixel perfect as I was able to make it in ~8-10 hours. Things I know are missing: hover effect on yellow dropdowns, aria-labels, breakpoints on top of the default bootstrap defaults, hamburger menu for when the screen is too narrow for top dropdowns to fit, top bar to narrow when user scrolls down, some fonts, dropdown menu styling, enter effects for elements as the user scrolls down the page. 
 
-1.  **Open the source code and start editing!**
+Things I done to a degree: on hover effect on the download button, Dropdown caret replacement, somewhat reasonable breakpoints throughout the page (only unreasonable one is the top nav dropdowns, which should be replaced by a hamburgler when the container is too narrow). Overall layout and look of the page.
 
-    Your site is now running at `http://localhost:8000`!
+### Functionality
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
+Other than the dropdowns doing dropdown things, I didn't really put in any functionality on there. Only use of React is one useStaticQuery hook. Not that I don't know how to use React, I'm actually quite fond and familiar with React, it just didn't seem to be needed anywhere to achieve what was requested in the assignment.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### Integration with CMS
 
-## 🚀 Quick start (Netlify)
+So I choose Contentful, as its the only one that seems to be properly maintained, and also has like 100x active monthly users compared to the other contenders. It was pretty easy to setup and integrate. I'm not pulling everything from Contentful, it would just take more time to migrate everything, so I focused on the obvious CMS-y bits: the "HeroPanel" elements that have the one image, and the title and text elements. 
+![image info](./images/HeroPanelExample.png)
+And the "summary" elements below that have the yellow icons on them. 
+![image info](./images/SummaryPanel.png)
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## Parts that I skipped
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+Due to time considerations I decided to leave out the following things: 
+- "About Bitcoin (BTC)" panel
+- The interactive graph (that looks like 8 hours of work in itself. Also, it doesn't work for me for any timespan over 1M on the live exodus website)
+- The repeated downlaods panel below
+- Trustpilot widget (that surely is just a widget)
 
-## 🧐 What's inside?
+### Code Re-use Via a Component Library
 
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
+Didn't have time. I have whole codebases of material-ui, styled-components component and theming libraries. Wanted to try making a Bootstrap5 one from scratch. Didn't work out, not sure why but it wasn't importing the ThemeProvider into my main project correctly. After about 2 hours total I abandoned the effort. 
+I do feel very comforatble working on, and working with, themes and component libraries. 
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
+## Final words
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+If you've gotten this far. Please give job. =D
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+<br /> <br /> 
+Original assignment following from here:
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+# Web Development / CMS Hire Code Challenge
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+## Overview
 
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+This challenge is designed to evaluate your skills in implementing designs from Figma, designing component systems/libraries, and setting up CMS.
 
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+> [!IMPORTANT]
+> There's a LOT to this challenge.
+> Please budget 8 hours for what you think is reasonable to accomplish and stop there. If you're to skip a part completely, skip Part 2. In your submission, please clarify which parts / bullets you skipped.
 
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+## Part 1: Implementing Designs from Figma
 
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+### Task
 
-1.  **`README.md`**: A text file containing useful reference information about your project.
+Convert the linked [Figma](./Exodus_Assets.fig) design into a responsive webpage using Gatsby + React and the styling/component libraries of your choice (please explain why you chose them though).
 
-## 🎓 Learning Gatsby
+### Requirements
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+1. **Pixel-perfect implementation**: The design should closely match the provided Figma file.
+2. **Responsiveness**: The page should be fully responsive, adapting well to different screen sizes.
+3. **Accessibility**: Follow basic accessibility guidelines (e.g. proper use of ARIA labels, semantic HTML elements).
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+__N.B.__ The design file is based on our [Bitcoin Wallet Landing Page](https://www.exodus.com/bitcoin-wallet).  You can use that as a reference to source imagery.  Consider that the page needs to be replicated for a multitude of assets.  A member of the Marketing Team should be able to create a page easily from the CMS (see part 3).
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+### Deliverables
 
-## 💫 Deploy
+- A GitHub repository with the source code.
+- A live demo link (e.g. using GitHub Pages, Vercel, Netlify, or the CMS you choose in Part 3).
+- Document and/or creata a short video demo the build/deploy workflow.
 
-[Build, Deploy, and Host On Netlify](https://netlify.com)
+## Part 2: Code Re-use Via a Component Library
 
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
+### Task
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+Create a reusable component library based on the Figma design from Part 1.
+
+### Requirements
+
+1. **Component-based architecture**: Break down the design into reusable components.
+2. **Documentation**: Provide clear documentation on how to use the components.
+3. **Theming**: Implement basic theming capabilities (e.g. light and dark modes).
+
+### Deliverables
+
+- The same GitHub repository as Part 1, with the component library code.
+
+## Part 3: CMS
+
+### Task
+
+1. **CMS setup**: Choose a CMS (e.g. Contentful, Strapi, Netlify CMS) and model the pages you designed in Part 1. Integrate Gatsby with the CMS.  
+2. [Bonus] **Deploy previews**: Configure deploy previews for content changes made by non-developers. We can't expect the marketing team to submit pull requests for copy changes.
+3. [Bonus] **A/B testing**: Set up basic A/B testing functionality, e.g. to test different hero section images or light vs dark as a default theme.
+
+### Deliverables
+
+- Short explainer defending your choice of CMS.
+- A GitHub repository with the CMS configuration and integration code. This can be the same repository as in Part 1.
+- Video demo on how to use the CMS for managing content, deploy previews, and A/B testing.
+- (Ideally) provide a live deployment for us to play with.
