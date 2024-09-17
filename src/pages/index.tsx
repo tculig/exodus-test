@@ -7,9 +7,10 @@ import HeroPanel from "../components/HeroPanel"
 import { graphql } from "gatsby"
 import SummaryPanel from "../components/SummaryPanel"
 import Footer from "../components/Footer"
+import { StaticImage } from "gatsby-plugin-image"
 
 
-const SecondPage = ({ data, location }) => {
+const SecondPage = ({ data, _location }) => {
 
   return (
    <Layout>
@@ -26,9 +27,9 @@ const SecondPage = ({ data, location }) => {
                 style={{ width: "100%", paddingBottom: "56.2429696287964%" }}
               />
               <img
-                src="/images/header-bg-lsize.jpg"
+                src={data.allContentfulHeaderContent.nodes[0].backgroundImage.url}
                 alt="Best Bitcoin Wallet | BTC Wallet App"
-                loading="lazy"
+                loading="eager"
                 style={{
                   position: "absolute",
                   top: 0,
@@ -42,7 +43,7 @@ const SecondPage = ({ data, location }) => {
                 }}
               />
             </div>
-            <Header />
+            <Header data={data.allContentfulHeaderContent.nodes[0]}/>
             {data?.allContentfulHeroPanel?.nodes?.map((node,index)=><HeroPanel data={node} key={index}/>)}
             <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes}/>
           </main>
@@ -80,6 +81,31 @@ query {
       }
       previewImage {
         publicUrl
+        url
+      }
+    }
+  }
+  allContentfulHeaderContent {
+    nodes {
+      bitcoinSvg {
+        url
+      }
+      carretSvg {
+        url
+      }
+      desktopSvg {
+        url
+      }
+      puzzleSvg {
+        url
+      }
+      mobileSvg {
+        url
+      }
+      backgroundImage {
+        url
+      }
+      exodusLogo {
         url
       }
     }

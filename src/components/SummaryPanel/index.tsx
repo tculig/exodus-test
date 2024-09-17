@@ -7,7 +7,7 @@ interface Props {
   nodes:SummaryPanelItemProps[]
 }
 
-const AssetPageMobile = ({nodes}:Props) => {
+const SummaryPage = ({nodes}:Props) => {
   return (
     <section className="t-summary_section">
       <Container>
@@ -26,4 +26,4 @@ const AssetPageMobile = ({nodes}:Props) => {
   );
 };
 
-export default AssetPageMobile;
+export default SummaryPage;

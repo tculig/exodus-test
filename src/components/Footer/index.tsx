@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Nav, Collapse, Button } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Collapse } from 'react-bootstrap';
 import "./style.css"
+import { StaticImage } from "gatsby-plugin-image";
 
 const Footer = () => {
   return (
@@ -123,9 +124,9 @@ const Footer = () => {
             <Col md={6} xs={12}>
               <div className="t-copyright">
                 <div className="t-copyright-logo">
-                  <img
+                  <StaticImage
                     alt="Exodus Logo"
-                    src="/asset-page/img/btc/exodus-logo.webp"
+                    src="../../images/exodus-logo.jpg"
                     style={{ maxWidth: '100%' }}
                   />
                 </div>

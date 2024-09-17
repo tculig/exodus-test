@@ -18,7 +18,7 @@ interface Props {
   data: SummaryPanelItemProps
 }
 
-const AssetPageMobile = ({ data }: Props) => {
+const SummaryPanelItem = ({ data }: Props) => {
   return (
     <section className="t-asset-page-mobile x-active">
       <Container>
@@ -48,4 +48,4 @@ const AssetPageMobile = ({ data }: Props) => {
   );
 };
 
-export default AssetPageMobile;
+export default SummaryPanelItem;

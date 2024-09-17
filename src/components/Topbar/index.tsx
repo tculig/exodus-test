@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import "./style.css"
+import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const MenuItem = ({ title, description, href, target }) => (
 
@@ -29,32 +31,44 @@ const MenuSection = ({ title, items }) => (
   </NavDropdown>
 );
 
-const Header = () => {
-  const menuItems = {
-    Products: [
-      { title: "Web3 Wallet", description: "Explore the world of Web3 and DeFi", href: "/web3-wallet/" },
-      { title: "Mobile Wallet", description: "Control your wealth anywhere", href: "https://exodus.com/mobile/" },
-      // ... other product items
-    ],
-    Support: [
-      { title: "Support", description: "Our customer support engineers are here to help", href: "/contact-support/" },
-      { title: "Knowledge Base", description: "Common questions and blockchain education", href: "https://www.exodus.com/support", target: "_blank" },
-      // ... other support items
-    ],
-    Company: [
-      { title: "About Us", description: "Learn more about Exodus", href: "/about/" },
-      { title: "Investors", description: "Read about news, media, events and more", href: "/investors/" },
-      // ... other company items
-    ],
-  };
+const menuItems = {
+  Products: [
+    { title: "Web3 Wallet", description: "Explore the world of Web3 and DeFi", href: "/web3-wallet/" },
+    { title: "Mobile Wallet", description: "Control your wealth anywhere", href: "https://exodus.com/mobile/" },
+    // ... other product items
+  ],
+  Support: [
+    { title: "Support", description: "Our customer support engineers are here to help", href: "/contact-support/" },
+    { title: "Knowledge Base", description: "Common questions and blockchain education", href: "https://www.exodus.com/support", target: "_blank" },
+    // ... other support items
+  ],
+  Company: [
+    { title: "About Us", description: "Learn more about Exodus", href: "/about/" },
+    { title: "Investors", description: "Read about news, media, events and more", href: "/investors/" },
+    // ... other company items
+  ],
+};
 
+const TopBar = () => {
+  const data = useStaticQuery(graphql`
+    query {
+        allContentfulHeaderContent {
+          nodes {
+            exodusLogo {
+              url
+            }
+          }
+        }
+    }
+  `);
+ 
   return (
     <div className="t-topbar-header-wrapper">
       <Navbar variant="dark" expand="lg" id="headerNav" className="t-topbar-header">
         <Container fluid className="t-topbar-header-content t-flex-between">
           <div>
             <img
-              src="/images/exodus.svg"
+              src={data?.allContentfulHeaderContent?.nodes[0]?.exodusLogo?.url}
               alt="Exodus: Digital blockchain products"
               loading="eager"
               style={{
@@ -79,4 +93,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default TopBar;

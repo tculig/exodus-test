@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Container, Dropdown } from 'react-bootstrap'
 import "./style.css"
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 
 interface ToggleProps {
   svgSrc: string,
@@ -9,43 +9,41 @@ interface ToggleProps {
   carret?: boolean
 }
 
-const generateDropdownToggle = ({ svgSrc, text,carret=true }: ToggleProps) => (
-  <Dropdown.Toggle className="t-toggle">
-    <i className="t-toggle-icon">
-      <img
-        src={svgSrc}
-        alt={text}
+const generateDropdownToggle = ({ svgSrc, text, carret = true }: ToggleProps) => {
+  return (
+    <Dropdown.Toggle className="t-toggle">
+      <i className="t-toggle-icon">
+        <img
+          src={svgSrc}
+          alt={text}
+          loading="eager"
+          width={24}
+          height={24}
+         
+        />
+      </i>
+      <span className="t-toggle-label">{text}</span>
+      {carret && <StaticImage
+        src="../../images/caret.svg"
+        alt="Caret"
         loading="eager"
         style={{
-          width: "24px",
-          height: "24px",
+          width: "11px",
+          height: "7px",
         }}
-      />
-    </i>
-    <span className="t-toggle-label">{text}</span>
-    {carret&&<img
-      src="/images/caret.svg"
-      alt="Caret"
-      loading="eager"
-      style={{
-        width: "11px",
-        height: "7px",
-      }}
-    />}
-  </Dropdown.Toggle>
-)
+      />}
+    </Dropdown.Toggle>
+  )};
 
-const BitcoinWalletHeader = () => {
+const Header = ({data}) => {
   return (
     <header>
       <Container className="t-asset-page-header-content">
         <i className="t-asset-icon-wrapper">
           <img
-            src="/images/bitcoin.svg"
+            src={data.bitcoinSvg.url}
             alt="Bitcoin (BTC)"
             loading="eager"
-            width={40}
-            height={40}
             className="t-asset-icon t-asset-icon--largest"
           />
         </i>
@@ -57,7 +55,7 @@ const BitcoinWalletHeader = () => {
         </h2>
         <div className="t-asset-page-header-actions x-break-sm">
           <Dropdown className="t-platform-dropdown t-platform-dropdown--Desktop">
-            {generateDropdownToggle({ svgSrc: "/images/desktop.svg", text: "Download Desktop" })}
+            {generateDropdownToggle({ svgSrc: data.desktopSvg.url, text: "Download Desktop" })}
             <Dropdown.Menu>
               <Dropdown.Item href="#windows">Windows</Dropdown.Item>
               <Dropdown.Item href="#mac">Mac</Dropdown.Item>
@@ -66,7 +64,7 @@ const BitcoinWalletHeader = () => {
           </Dropdown>
 
           <Dropdown className="t-platform-dropdown t-platform-dropdown--Mobile">
-          {generateDropdownToggle({ svgSrc: "/images/mobile.svg", text: "Download Mobile" })}
+            {generateDropdownToggle({ svgSrc: data.mobileSvg.url, text: "Download Mobile" })}
 
             <Dropdown.Menu>
               <Dropdown.Item href="#ios">iOS</Dropdown.Item>
@@ -74,7 +72,7 @@ const BitcoinWalletHeader = () => {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className="t-platform-dropdown t-platform-dropdown--Extension">
-          {generateDropdownToggle({ svgSrc: "/images/puzzle.svg", text: "Download Extension", carret: false })}
+            {generateDropdownToggle({ svgSrc: data.puzzleSvg.url, text: "Download Extension", carret: false })}
           </Dropdown>
         </div>
       </Container>
@@ -82,4 +80,4 @@ const BitcoinWalletHeader = () => {
   )
 }
 
-export default BitcoinWalletHeader
+export default Header
