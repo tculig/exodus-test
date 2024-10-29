@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Nav, Collapse } from 'react-bootstrap';
 import "./style.css"
-import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Footer = () => {
