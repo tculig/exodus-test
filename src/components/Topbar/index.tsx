@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import "./style.css"
 import { graphql, useStaticQuery } from 'gatsby';
+import {Button} from 'test-button-muk-dev';
 
 const MenuItem = ({ title, description, href, target }) => (
 
@@ -86,6 +87,7 @@ const TopBar = () => {
             </Navbar.Collapse>
           </div>
           <a href="/download/" className="t-button t-download">Download</a>
+          <Button>HELLO</Button>
         </Container>
       </Navbar>
     </div>

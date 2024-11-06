@@ -9428,6 +9428,9 @@ through@^2.3.6:
   resolved "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
+"tiho-component-library@file:./../tiho-component-library":
+  version "0.1.0"
+
 timers-ext@^0.1.7:
   version "0.1.7"
   resolved "https://registry.npmjs.org/timers-ext/-/timers-ext-0.1.7.tgz"
