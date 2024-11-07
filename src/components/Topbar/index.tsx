@@ -1,8 +1,7 @@
-import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import "./style.css"
 import { graphql, useStaticQuery } from 'gatsby';
-import {Button} from 'test-button-muk-dev';
+import {Button} from 'tiho-component-library';
 
 const MenuItem = ({ title, description, href, target }) => (
 
@@ -87,7 +86,7 @@ const TopBar = () => {
             </Navbar.Collapse>
           </div>
           <a href="/download/" className="t-button t-download">Download</a>
-          <Button>HELLO</Button>
+          <Button variant={'primary'} size={'medium'} fullWidth={false}>HELLO</Button>
         </Container>
       </Navbar>
     </div>

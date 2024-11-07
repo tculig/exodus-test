@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import Layout from "../components/layout"
 import Topbar from "../components/Topbar"
 import Header from "../components/Header"
