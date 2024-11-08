@@ -1,7 +1,7 @@
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import "./style.css"
 import { graphql, useStaticQuery } from 'gatsby';
-import {Button} from 'tiho-component-library';
+import { Button } from 'tiho-component-library';
 
 const MenuItem = ({ title, description, href, target }) => (
 
@@ -60,7 +60,7 @@ const TopBar = () => {
         }
     }
   `);
- 
+
   return (
     <div className="t-topbar-header-wrapper">
       <Navbar variant="dark" expand="lg" id="headerNav" className="t-topbar-header">
