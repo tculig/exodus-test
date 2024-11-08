@@ -8,11 +8,26 @@ import Footer from "../components/Footer"
 import * as Styled from './styles/index-styles';
 import { GatsbyImage } from "gatsby-plugin-image"
 
+const navMenuItems = {
+  Products: [
+    { title: "Web3 Wallet", description: "Explore the world of Web3 and DeFi", href: "/web3-wallet/" },
+    { title: "Mobile Wallet", description: "Control your wealth anywhere", href: "https://exodus.com/mobile/" },
+  ],
+  Support: [
+    { title: "Support", description: "Our customer support engineers are here to help", href: "/contact-support/" },
+    { title: "Knowledge Base", description: "Common questions and blockchain education", href: "https://www.exodus.com/support", target: "_blank" },
+  ],
+  Company: [
+    { title: "About Us", description: "Learn more about Exodus", href: "/about/" },
+    { title: "Investors", description: "Read about news, media, events and more", href: "/investors/" },
+  ],
+};
+
 const BitcoinWalletPage = ({ data }) => {
 
   return (
     <Layout>
-      <Topbar />
+      <Topbar menuItems={navMenuItems} />
       <main>
         <Styled.BackgroundContainer>
           <GatsbyImage
@@ -82,7 +97,7 @@ query {
         gatsbyImageData(layout: CONSTRAINED)
       }
       exodusLogo {
-        url
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
   }
