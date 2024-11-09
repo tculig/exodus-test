@@ -1,7 +1,6 @@
-import React from 'react'
-import { Container, Dropdown } from 'react-bootstrap'
-import "./style.css"
+import "./style.css";
 import { StaticImage } from 'gatsby-plugin-image'
+import * as Styled from './styles';
 
 interface ToggleProps {
   svgSrc: string,
@@ -11,18 +10,18 @@ interface ToggleProps {
 
 const generateDropdownToggle = ({ svgSrc, text, carret = true }: ToggleProps) => {
   return (
-    <Dropdown.Toggle className="t-toggle">
-      <i className="t-toggle-icon">
+    <Styled.DropdownToggle>
+      <Styled.ToggleIconContainer>
         <img
           src={svgSrc}
           alt={text}
           loading="eager"
           width={24}
           height={24}
-         
+
         />
-      </i>
-      <span className="t-toggle-label">{text}</span>
+      </Styled.ToggleIconContainer>
+      <Styled.ToggleLabel>{text}</Styled.ToggleLabel>
       {carret && <StaticImage
         src="../../images/caret.svg"
         alt="Caret"
@@ -32,50 +31,49 @@ const generateDropdownToggle = ({ svgSrc, text, carret = true }: ToggleProps) =>
           height: "7px",
         }}
       />}
-    </Dropdown.Toggle>
-  )};
+    </Styled.DropdownToggle>
+  )
+};
 
-const Header = ({data}) => {
+const Header = ({ data }) => {
   return (
     <header>
-      <Container className="t-asset-page-header-content">
-        <i className="t-asset-icon-wrapper">
-          <img
-            src={data.bitcoinSvg.url}
-            alt="Bitcoin (BTC)"
-            loading="eager"
-            className="t-asset-icon t-asset-icon--largest"
-          />
-        </i>
-        <h1 className="t-asset-page-header-heading x-break-sm">
+      <Styled.Container>
+        <img
+          src={data.bitcoinSvg.url}
+          alt="Bitcoin (BTC)"
+          loading="eager"
+          className="t-asset-icon t-asset-icon--largest"
+        />
+        <Styled.Header1 className="break-sm">
           Exodus Bitcoin Wallet
-        </h1>
-        <h2 className="t-asset-page-header-subheading x-break-sm">
+        </Styled.Header1>
+        <Styled.Header2 className="x-break-sm">
           Send, Receive, and Swap With Exodus' Free and Secure BTC Wallet
-        </h2>
-        <div className="t-asset-page-header-actions x-break-sm">
-          <Dropdown className="t-platform-dropdown t-platform-dropdown--Desktop">
+        </Styled.Header2>
+        <Styled.ButtonContainer className="break-sm">
+          <Styled.Dropdown>
             {generateDropdownToggle({ svgSrc: data.desktopSvg.url, text: "Download Desktop" })}
-            <Dropdown.Menu>
-              <Dropdown.Item href="#windows">Windows</Dropdown.Item>
-              <Dropdown.Item href="#mac">Mac</Dropdown.Item>
-              <Dropdown.Item href="#linux">Linux</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+            <Styled.DropdownMenu>
+              <Styled.DropdownItem href="#windows">Windows</Styled.DropdownItem>
+              <Styled.DropdownItem href="#mac">Mac</Styled.DropdownItem>
+              <Styled.DropdownItem href="#linux">Linux</Styled.DropdownItem>
+            </Styled.DropdownMenu>
+          </Styled.Dropdown>
 
-          <Dropdown className="t-platform-dropdown t-platform-dropdown--Mobile">
+          <Styled.Dropdown>
             {generateDropdownToggle({ svgSrc: data.mobileSvg.url, text: "Download Mobile" })}
+            <Styled.DropdownMenu>
+              <Styled.DropdownItem href="#ios">iOS</Styled.DropdownItem>
+              <Styled.DropdownItem href="#android">Android</Styled.DropdownItem>
+            </Styled.DropdownMenu>
+          </Styled.Dropdown>
 
-            <Dropdown.Menu>
-              <Dropdown.Item href="#ios">iOS</Dropdown.Item>
-              <Dropdown.Item href="#android">Android</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown className="t-platform-dropdown t-platform-dropdown--Extension">
+          <Styled.Dropdown>
             {generateDropdownToggle({ svgSrc: data.puzzleSvg.url, text: "Download Extension", carret: false })}
-          </Dropdown>
-        </div>
-      </Container>
+          </Styled.Dropdown>
+        </Styled.ButtonContainer>
+      </Styled.Container>
     </header>
   )
 }

@@ -43,12 +43,7 @@ export const Nav = styled(BootstrapNav)`
     justify-content: space-between;
 `;
 
-type NavDropdownComponent = typeof BootstrapNavDropdown & {
-    Title: typeof styled.span;
-    Description: typeof styled.span;
-};
-
-const NavDropdown = styled(BootstrapNavDropdown)`
+export const NavDropdown = styled(BootstrapNavDropdown)`
     padding: 0 16px;
 
     .dropdown-menu {
@@ -90,18 +85,19 @@ const NavDropdown = styled(BootstrapNavDropdown)`
             width: 0;
         }
     }
-` as NavDropdownComponent;
-
-NavDropdown.Item = styled(BootstrapNavDropdown.Item)`
-    color: #0009;
-    display: flex;
-    margin: 10px 0;
-    padding: 10px 20px;
-    position: relative;
-    white-space: normal;
 `;
 
-NavDropdown.Title = styled.span`
+export const NavDropdownItem = styled(BootstrapNavDropdown.Item)`
+    && {
+        color: #0009;
+        margin: 10px 0;
+        padding: 10px 20px;
+        position: relative;
+        white-space: normal;
+    }
+`;
+
+export const NavDropdownTitle = styled.span`
     color: #1f2033;
     display: block;
     font-size: 15px;
@@ -109,7 +105,7 @@ NavDropdown.Title = styled.span`
     white-space: nowrap;
 `;
 
-NavDropdown.Description = styled.span`
+export const NavDropdownDescription = styled.span`
     color: #1f2033cc;
     display: block;
     font-size: 13px;
@@ -118,5 +114,3 @@ NavDropdown.Description = styled.span`
     margin-top: 6px;
     white-space: nowrap;
 `;
-
-export { NavDropdown };

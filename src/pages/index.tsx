@@ -6,7 +6,6 @@ import { graphql } from "gatsby"
 import SummaryPanel from "../components/SummaryPanel"
 import Footer from "../components/Footer"
 import * as Styled from './styles/index-styles';
-import { GatsbyImage } from "gatsby-plugin-image"
 
 const navMenuItems = {
   Products: [
@@ -24,13 +23,12 @@ const navMenuItems = {
 };
 
 const BitcoinWalletPage = ({ data }) => {
-
   return (
     <Layout>
       <Topbar menuItems={navMenuItems} />
       <main>
         <Styled.BackgroundContainer>
-          <GatsbyImage
+          <Styled.StyledGatsbyImage
             image={data.allContentfulHeaderContent.nodes[0].backgroundImage.gatsbyImageData}
             alt='Exodus Bitcoin Mobile Wallet'
             loading="eager"

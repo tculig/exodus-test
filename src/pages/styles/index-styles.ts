@@ -1,3 +1,4 @@
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 export const BackgroundContainer = styled.div`
@@ -12,4 +13,8 @@ export const BackgroundContainer = styled.div`
         height: 100%;
         background: linear-gradient(180deg, #1f203300, #1f2033);
     }
+`;
+
+export const StyledGatsbyImage = styled(GatsbyImage)`
+    height: 100%;
 `;

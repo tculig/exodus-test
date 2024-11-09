@@ -1,15 +1,14 @@
 import { Navbar, Nav } from 'react-bootstrap';
-import "./style.css"
 import { graphql, useStaticQuery } from 'gatsby';
 import { Button } from 'tiho-component-library';
 import * as Styled from './styles';
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const MenuItem = ({ title, description, href, target }) => (
-  <Styled.NavDropdown.Item href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined}>
-    <Styled.NavDropdown.Title>{title}</Styled.NavDropdown.Title>
-    <Styled.NavDropdown.Description>{description}</Styled.NavDropdown.Description>
-  </Styled.NavDropdown.Item>
+  <Styled.NavDropdownItem href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined}>
+    <Styled.NavDropdownTitle>{title}</Styled.NavDropdownTitle>
+    <Styled.NavDropdownDescription>{description}</Styled.NavDropdownDescription>
+  </Styled.NavDropdownItem>
 );
 
 const MenuSection = ({ title, items }) => (
@@ -28,7 +27,7 @@ const TopBar = ({ menuItems }) => {
         allContentfulHeaderContent {
           nodes {
             exodusLogo {
-                gatsbyImageData(layout: CONSTRAINED)
+              gatsbyImageData
             }
           }
         }
@@ -39,11 +38,12 @@ const TopBar = ({ menuItems }) => {
     <Styled.AnchorTop>
       <Styled.Navbar variant="dark" expand="lg">
         <Styled.Container fluid>
-          <GatsbyImage
-            image={data?.allContentfulHeaderContent.nodes[0].exodusLogo.gatsbyImageData}
-            alt="Exodus: Digital blockchain products"
-            loading="eager"
-          />
+          {data?.allContentfulHeaderContent.nodes[0].exodusLogo.gatsbyImageData ?
+            <GatsbyImage
+              image={data.allContentfulHeaderContent.nodes[0].exodusLogo.gatsbyImageData}
+              alt="Exodus: Digital blockchain products"
+              loading="eager"
+            /> : null}
           <div>
             <Navbar.Collapse>
               <Nav>
@@ -53,8 +53,7 @@ const TopBar = ({ menuItems }) => {
               </Nav>
             </Navbar.Collapse>
           </div>
-          <a href="/download/" className="t-button t-download">Download</a>
-          <Button variant={'primary'} size={'medium'} fullWidth={false}>HELLO</Button>
+          <Button variant={'primary'} size={'medium'} style={{ width: "168px" }}>Download</Button>
         </Styled.Container>
       </Styled.Navbar>
     </Styled.AnchorTop>

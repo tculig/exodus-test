@@ -123,3 +123,19 @@ body {
 .btn {
   border: none;
 }
+
+
+@media (max-width: 912px) {
+  .break-sm {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+
+  }
+}
