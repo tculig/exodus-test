@@ -40,8 +40,8 @@ const BitcoinWalletPage = ({ data }) => {
           {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} />)}
           <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
         </StyledGlobals.CenteredContainer>
-        <Footer />
       </main>
+      <Footer />
     </Layout>
   )
 }
