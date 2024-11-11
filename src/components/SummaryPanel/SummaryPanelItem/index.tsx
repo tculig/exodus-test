@@ -1,6 +1,10 @@
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import "./style.css"
+import * as Styled from './styles';
+import * as StyledGlobals from '../../../styles/globals';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { renderGatsbyImage } from '../../../utils';
+
 
 export interface SummaryPanelItemProps {
   id: string,
@@ -10,7 +14,8 @@ export interface SummaryPanelItemProps {
   },
   previewImage: {
     publicUrl: string,
-    url: string
+    url: string,
+    gatsbyImageData?: IGatsbyImageData,
   }
 }
 
@@ -20,27 +25,21 @@ interface Props {
 
 const SummaryPanelItem = ({ data }: Props) => {
   return (
-    <section className="t-asset-page-mobile x-active">
+    <section>
       <Container>
         <Row>
           <Col>
-            <div style={{ maxHeight: "600px", display: "flex" }}>
-              <img
-                src={data.previewImage.url}
-                alt={"Summary"}
-                loading="lazy"
-              />
-            </div>
+            {renderGatsbyImage({ image: data.previewImage, alt: "Summary" })}
           </Col>
         </Row>
         <Row>
           <Col>
-            <h2 className="t_summary_title">
+            <Styled.SummaryTitle>
               {data.title}
-            </h2>
-            <p className="t-asset-page-mobile-subheading">
+            </Styled.SummaryTitle>
+            <StyledGlobals.Subheading>
               {data.text.text}
-            </p>
+            </StyledGlobals.Subheading>
           </Col>
         </Row>
       </Container>

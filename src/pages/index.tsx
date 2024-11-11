@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 import SummaryPanel from "../components/SummaryPanel"
 import Footer from "../components/Footer"
 import * as Styled from './styles/index-styles';
+import * as StyledGlobals from '../styles/globals';
 
 const navMenuItems = {
   Products: [
@@ -34,11 +35,13 @@ const BitcoinWalletPage = ({ data }) => {
             loading="eager"
           />
         </Styled.BackgroundContainer>
-        <Header data={data.allContentfulHeaderContent.nodes[0]} />
-        {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} />)}
-        <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
+        <StyledGlobals.CenteredContainer>
+          <Header data={data.allContentfulHeaderContent.nodes[0]} />
+          {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} />)}
+          <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
+        </StyledGlobals.CenteredContainer>
+        <Footer />
       </main>
-      <Footer />
     </Layout>
   )
 }
@@ -71,6 +74,7 @@ query {
       previewImage {
         publicUrl
         url
+        gatsbyImageData
       }
     }
   }

@@ -2,7 +2,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Button } from 'tiho-component-library';
 import * as Styled from './styles';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { renderGatsbyImage } from '../../utils';
 
 const MenuItem = ({ title, description, href, target }) => (
   <Styled.NavDropdownItem href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined}>
@@ -39,11 +39,8 @@ const TopBar = ({ menuItems }) => {
       <Styled.Navbar variant="dark" expand="lg">
         <Styled.Container fluid>
           {data?.allContentfulHeaderContent.nodes[0].exodusLogo.gatsbyImageData ?
-            <GatsbyImage
-              image={data.allContentfulHeaderContent.nodes[0].exodusLogo.gatsbyImageData}
-              alt="Exodus: Digital blockchain products"
-              loading="eager"
-            /> : null}
+            renderGatsbyImage({ image: data.allContentfulHeaderContent.nodes[0].exodusLogo, alt: "Exodus: Digital blockchain products", loading: "eager" })
+            : null}
           <div>
             <Navbar.Collapse>
               <Nav>

@@ -1,6 +1,8 @@
 import { Container, Row } from 'react-bootstrap';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import * as Styled from './styles';
+import * as StyledGlobals from '../../styles/globals';
+import { renderGatsbyImage } from '../../utils';
 
 interface Props {
   data: {
@@ -22,21 +24,17 @@ const AssetPageMobile = ({ data }: Props) => {
       <Container>
         <Row>
           <Styled.CenteredCol>
-            <GatsbyImage
-              image={data.heroImage.gatsbyImageData}
-              alt='Exodus Bitcoin Mobile Wallet'
-              loading="lazy"
-            />
+            {renderGatsbyImage({ image: data.heroImage, alt: "Exodus Bitcoin Mobile Wallet" })}
           </Styled.CenteredCol>
         </Row>
         <Row style={{ paddingTop: "65px" }}>
           <Styled.CenteredCol>
-            <Styled.TitleHeader>
+            <StyledGlobals.Heading>
               {data.title}
-            </Styled.TitleHeader>
-            <Styled.Subheading>
+            </StyledGlobals.Heading>
+            <StyledGlobals.Subheading>
               {data.text.text}
-            </Styled.Subheading>
+            </StyledGlobals.Subheading>
           </Styled.CenteredCol>
         </Row>
       </Container>
