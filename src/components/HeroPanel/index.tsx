@@ -1,46 +1,43 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import "./style.css"
+import { Container, Row } from 'react-bootstrap';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import * as Styled from './styles';
 
 interface Props {
-  data:{
+  data: {
     id: string,
     title: string,
     hasBackground: boolean
     text: {
       text: string,
     }
-    heroImage :{
-      gatsbyImageData : IGatsbyImageData
+    heroImage: {
+      gatsbyImageData: IGatsbyImageData
     }
   }
 }
 
-const AssetPageMobile = ({data}:Props) => {
+const AssetPageMobile = ({ data }: Props) => {
   return (
-    <section className="t-asset-page-mobile x-active">
+    <section>
       <Container>
         <Row>
-         <Col className='center-content'>
-         <div style={{maxHeight:"600px", display:"flex"}}>
-         <GatsbyImage
-                    image={data.heroImage.gatsbyImageData}
-                    alt='Exodus Bitcoin Mobile Wallet'
-                    loading="lazy"
-                  />
-                </div>
-          </Col>
+          <Styled.CenteredCol>
+            <GatsbyImage
+              image={data.heroImage.gatsbyImageData}
+              alt='Exodus Bitcoin Mobile Wallet'
+              loading="lazy"
+            />
+          </Styled.CenteredCol>
         </Row>
-        <Row className="t-asset-page-mobile-content">
-        <Col className='center-content'>
-            <h2 className="t-asset-page-mobile-heading">
+        <Row style={{ paddingTop: "65px" }}>
+          <Styled.CenteredCol>
+            <Styled.TitleHeader>
               {data.title}
-            </h2>
-            <p className="t-asset-page-mobile-subheading">
+            </Styled.TitleHeader>
+            <Styled.Subheading>
               {data.text.text}
-            </p>
-            </Col>
+            </Styled.Subheading>
+          </Styled.CenteredCol>
         </Row>
       </Container>
     </section>
