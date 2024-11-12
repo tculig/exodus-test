@@ -1,7 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
-import "./style.css"
 import { graphql, useStaticQuery } from 'gatsby';
 import * as Styled from './styles'
+import { Button } from 'tiho-component-library';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -84,39 +84,37 @@ const Footer = () => {
               </Styled.PadRight>
             </div>
           </Col>
-          <Col md={3} xs={12} className="t-subscribe-module">
-            <p className="t-subscribe-module-heading">Subscribe to Exodus</p>
-            <p className="t-subscribe-module-copy">
+          <Col md={3} xs={12}>
+            <Styled.Heading>Subscribe to Exodus</Styled.Heading>
+            <Styled.Subheading>
               Sign up to receive our newsletter with updates about your wallet.
-            </p>
-            <a href="/newsletter/" className="t-button t-download t-button_signup">
-              Sign me up
-            </a>
+            </Styled.Subheading>
+            <Button variant={'primary'} size={'medium'} style={{ width: "240px", height: "48px" }} onClick={() => { window.open("/newsletter/") }}>Sign me up</Button>
           </Col>
         </Row>
 
-        <Row className="t-footer-content-center">
-          <Col md={6} xs={12}>
-            <div className="t-copyright">
-              <div className="t-copyright-logo">
+        <Row>
+          <Col md={6} xs={12} style={{ padding: "60px 0" }}>
+            <div className="d-flex align-items-center">
+              <div className="pe-5">
                 <img
                   src={data?.allContentfulHeaderContent?.nodes[0]?.exodusLogo?.url}
                   alt="Exodus: Digital blockchain products"
                   loading="lazy"
                 />
               </div>
-              <div className="t-copyright-copy">
+              <Styled.CopyrightText>
                 Copyright © 2024 Exodus Movement, Inc.
                 <br />
                 Exodus was co-founded by Daniel Castagnoli and JP Richardson.
-              </div>
+              </Styled.CopyrightText>
             </div>
           </Col>
         </Row>
 
-        <Row className="t-footer-content-bottom">
+        <Row>
           <Col xs={12}>
-            <div className="t-terms">
+            <Styled.Terms>
               <span>
                 Exodus is a software platform ONLY and does not conduct any independent diligence on or substantive review of any blockchain asset, digital currency, cryptocurrency or associated funds. You are fully and solely responsible for evaluating your investments, for determining whether you will swap blockchain assets based on your own, and for all your decisions as to whether to swap blockchain assets with the Exodus in app swap feature. In many cases, blockchain assets you swap on the basis of your research may not increase in value, and may decrease in value. Similarly, blockchain assets you swap on the basis of your research may increase in value after your swap.
               </span>
@@ -131,7 +129,7 @@ const Footer = () => {
                 <a target="_blank" rel="noreferrer noopener" href="/terms/">Terms of Service</a>
                 <a target="_blank" rel="noreferrer noopener" href="/trademarks/">Trademarks</a>
               </span>
-            </div>
+            </Styled.Terms>
           </Col>
         </Row>
       </Styled.RootContainer >
