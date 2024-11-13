@@ -5,7 +5,8 @@ import {
     Container as BootstrapContainer,
     NavDropdown as BootstrapNavDropdown,
 } from 'react-bootstrap';
-
+import { Properties } from 'csstype';
+type CSSColor = Properties['color'];
 export const AnchorTop = styled.div`
     position: fixed;
     top: 0;
@@ -47,44 +48,36 @@ export const Nav = styled(BootstrapNav)`
     justify-content: space-between;
 `;
 
-export const NavDropdown = styled(BootstrapNavDropdown)`
-    padding: 0 16px;
+interface StyledDropdownMenuProps {
+    $isOpen: boolean;
+}
 
+export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>`
+    padding: 0 16px;
     .dropdown-menu {
+        max-height: ${({ $isOpen }) => ($isOpen ? '1000px' : '0')};
+        opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
         transform: translateX(-50%);
         left: 50% !important;
         background-clip: padding-box;
         background-color: #fff;
         border: 0;
+        gap: 8px !important;
+        display: flex !important;
+        flex-direction: column;
         border-radius: 4px;
         box-shadow: 0 4px 15px 0 #00000014;
-        padding: 12px 0;
+        padding: 16px;
         text-align: left;
-        transition: all 0.8s ease;
         font-size: 16px;
-        margin: -4px 0 0;
         min-width: 160px;
-        padding: 7px 0 0;
-        position: absolute;
-        top: 80%;
-        max-height: 0;
-        height: 0;
-
+        width: 400px;
+        position: relative;
+        top: ${({ $isOpen }) => ($isOpen ? '100%' : '80%')};
+        transition: all 0.1s ease;
         z-index: 1000;
         margin-top: 6px;
         overflow: hidden;
-    }
-
-    .dropdown-open {
-        color: red;
-        .dropdown-menu {
-            transition: all 0.8s ease !important;
-            top: 100% !important;
-            max-height: 1000px !important;
-            height: auto !important;
-            opacity: 1 !important;
-            overflow: visible !important;
-        }
     }
 
     .dropdown-toggle {
@@ -114,11 +107,17 @@ export const NavDropdown = styled(BootstrapNavDropdown)`
 
 export const NavDropdownItem = styled(BootstrapNavDropdown.Item)`
     && {
+        display: flex;
         color: #0009;
-        margin: 10px 0;
-        padding: 10px 20px;
+        padding: 8px;
         position: relative;
         white-space: normal;
+        opacity: 0.8;
+        gap: 16px;
+    }
+    &:hover {
+        opacity: 1;
+        background-color: inherit !important;
     }
 `;
 
@@ -126,18 +125,19 @@ export const NavDropdownTitle = styled.span`
     color: #1f2033;
     display: block;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     white-space: nowrap;
+    line-height: 1.6;
 `;
 
 export const NavDropdownDescription = styled.span`
-    color: #1f2033cc;
+    color: #1f2033;
     display: block;
     font-size: 13px;
-    font-weight: 300;
-    line-height: 1;
-    margin-top: 6px;
+    font-weight: 400;
+    line-height: 1.6;
     white-space: nowrap;
+    opacity: 0.8;
 `;
 
 export const ExodusLogoWrapper = styled.div`
@@ -152,4 +152,44 @@ export const ExodusLogoWrapper = styled.div`
         opacity: 0;
         transform: translateX(-16px);
     }
+`;
+
+interface NavbarIconProps {
+    readonly $iconOffset: number;
+    readonly $iconBgGradient: CSSColor;
+    readonly $iconBoxShadowColor: CSSColor;
+}
+export const NavIcon = styled.i<NavbarIconProps>`
+    background-image: ${({ $iconBgGradient }) => `${$iconBgGradient};`}
+    box-shadow: ${({ $iconBoxShadowColor }) => `0 8px 18px 0 ${$iconBoxShadowColor}`} ;
+    border-radius: 50%;
+    display: block;
+    flex-shrink: 0;
+    height: 44px;
+    width: 44px;
+    position: relative;
+    transition: all 0.2s ease;
+
+    &::after {
+        background: url(/images/nav-icons-sprite.svg) no-repeat;
+        background-position: ${({ $iconOffset }) => `${$iconOffset}px`} 0;
+        content: '';
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+`;
+
+export const NavTitle = styled.div`
+    color: #1f2033;
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-top: 22px;
+    opacity: 0.4;
+    text-transform: uppercase;
 `;
