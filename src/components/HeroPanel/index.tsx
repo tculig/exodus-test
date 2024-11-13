@@ -21,12 +21,12 @@ interface Props {
 const AssetPageMobile = ({ data }: Props) => {
   return (
     <section>
-      <Container>
-        <Row>
+      <Styled.RootContainer>
+        <Styled.ImageRow>
           <Styled.CenteredCol>
-            {renderGatsbyImage({ image: data.heroImage, alt: "Exodus Bitcoin Mobile Wallet" })}
+            {renderGatsbyImage({ image: data.heroImage, alt: "Exodus Bitcoin Mobile Wallet", style: { objectFit: "contain" } })}
           </Styled.CenteredCol>
-        </Row>
+        </Styled.ImageRow>
         <Row style={{ paddingTop: "65px" }}>
           <Styled.CenteredCol>
             <StyledGlobals.Heading>
@@ -37,7 +37,7 @@ const AssetPageMobile = ({ data }: Props) => {
             </StyledGlobals.Subheading>
           </Styled.CenteredCol>
         </Row>
-      </Container>
+      </Styled.RootContainer>
     </section>
   );
 };

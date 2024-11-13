@@ -13,14 +13,18 @@ export const AnchorTop = styled.div`
     z-index: 1000;
 `;
 
-export const Navbar = styled(BootstrapNavbar)`
+interface NavbarProps {
+    readonly $collapsed: boolean;
+}
+
+export const Navbar = styled(BootstrapNavbar)<NavbarProps>`
     background-color: #1f1b34;
     display: flex;
-    height: 86px;
+    height: ${({ $collapsed }) => ($collapsed ? '56px' : '86px')};
     overflow: visible;
     padding: 0;
-    transition: all 0.5s;
     width: 100%;
+    transition: all 0.2s ease;
 `;
 
 export const Container = styled(BootstrapContainer)`
@@ -56,21 +60,38 @@ export const NavDropdown = styled(BootstrapNavDropdown)`
         box-shadow: 0 4px 15px 0 #00000014;
         padding: 12px 0;
         text-align: left;
-        transition: all 0.1s ease;
+        transition: all 0.8s ease;
         font-size: 16px;
         margin: -4px 0 0;
-        max-height: 500px;
         min-width: 160px;
         padding: 7px 0 0;
         position: absolute;
-        top: 100%;
+        top: 80%;
+        max-height: 0;
+        height: 0;
+
         z-index: 1000;
         margin-top: 6px;
+        overflow: hidden;
+    }
+
+    .dropdown-open {
+        color: red;
+        .dropdown-menu {
+            transition: all 0.8s ease !important;
+            top: 100% !important;
+            max-height: 1000px !important;
+            height: auto !important;
+            opacity: 1 !important;
+            overflow: visible !important;
+        }
     }
 
     .dropdown-toggle {
+        color: #fff;
+        opacity: 0.8;
         &::after {
-            border-color: #fff;
+            border-color: inherit;
             border-style: solid;
             border-width: 0 1px 1px 0;
             content: '';
@@ -83,6 +104,10 @@ export const NavDropdown = styled(BootstrapNavDropdown)`
             transform: rotate(45deg);
             vertical-align: 0.255em;
             width: 0;
+        }
+        &:hover {
+            color: #fff;
+            opacity: 1;
         }
     }
 `;
@@ -113,4 +138,18 @@ export const NavDropdownDescription = styled.span`
     line-height: 1;
     margin-top: 6px;
     white-space: nowrap;
+`;
+
+export const ExodusLogoWrapper = styled.div`
+    width: 156px;
+    height: 32px;
+
+    #exodus-logotype {
+        transition: all 0.2s ease;
+    }
+
+    .exodus-minimize-logo #exodus-logotype {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
 `;

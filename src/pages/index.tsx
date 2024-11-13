@@ -60,7 +60,7 @@ query {
         text
       }
       heroImage {
-        gatsbyImageData(layout: CONSTRAINED, resizingBehavior: SCALE, height: 600)
+        gatsbyImageData(layout: CONSTRAINED, resizingBehavior: SCALE)
       }
     }
   }

@@ -1,9 +1,10 @@
-import { Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { layout } from '../../styles/globals';
 
 export const CenteredCol = styled(Col)`
     ${layout.center};
+    height: 100%;
 `;
 
 export const TitleHeader = styled.h2`
@@ -22,4 +23,10 @@ export const Subheading = styled.p`
     margin-bottom: 0;
     margin-top: 10px;
     max-width: 770px;
+`;
+
+export const RootContainer = styled(Container)``;
+
+export const ImageRow = styled(Row)`
+    height: 600px;
 `;

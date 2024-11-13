@@ -25,6 +25,7 @@ export const DropdownMenu = styled(BootstrapDropdown.Menu)``;
 
 export const DropdownToggle = styled(BootstrapDropdown.Toggle)`
     && {
+        border: none;
         align-items: center;
         border-radius: 30px;
         cursor: pointer;

@@ -57,7 +57,7 @@ const Footer = () => {
                   </Styled.Heading>
                 </div>
                 <div className="flex-column" >
-                  {Object.entries(productsLinks).map(([title, href]) => <Styled.Link href={href} target="_blank" >{title}</Styled.Link>)}
+                  {Object.entries(productsLinks).map(([title, href], index) => <Styled.Link key={index} href={href} target="_blank" >{title}</Styled.Link>)}
                 </div>
               </Styled.PadRight>
 
@@ -68,7 +68,7 @@ const Footer = () => {
                   </Styled.Heading>
                 </div>
                 <div className="flex-column" >
-                  {Object.entries(supportLinks).map(([title, href]) => <Styled.Link href={href} target="_blank" >{title}</Styled.Link>)}
+                  {Object.entries(supportLinks).map(([title, href], index) => <Styled.Link key={index} href={href} target="_blank" >{title}</Styled.Link>)}
                 </div>
               </Styled.PadRight>
 
@@ -79,7 +79,7 @@ const Footer = () => {
                   </Styled.Heading>
                 </div>
                 <div className="flex-column" >
-                  {Object.entries(companyLinks).map(([title, href]) => <Styled.Link href={href} target="_blank" >{title}</Styled.Link>)}
+                  {Object.entries(companyLinks).map(([title, href], index) => <Styled.Link key={index} href={href} target="_blank" >{title}</Styled.Link>)}
                 </div>
               </Styled.PadRight>
             </div>

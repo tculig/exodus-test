@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css"
-import "./global.css"
+import "../../styles/global.css"
 import { ExodusTheme, ExodusThemeProvider } from "tiho-component-library"
 import * as Styled from './styles';
 

@@ -1,4 +1,3 @@
-import "./style.css";
 import { StaticImage } from 'gatsby-plugin-image'
 import * as Styled from './styles';
 
@@ -43,7 +42,8 @@ const Header = ({ data }) => {
           src={data.bitcoinSvg.url}
           alt="Bitcoin (BTC)"
           loading="eager"
-          className="t-asset-icon t-asset-icon--largest"
+          width={"80px"}
+          height={"80px"}
         />
         <Styled.Header1 className="break-sm">
           Exodus Bitcoin Wallet
