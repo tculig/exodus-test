@@ -1,9 +1,9 @@
 import { Navbar, Nav } from 'react-bootstrap';
-import { Button } from 'tiho-component-library';
+import { Button, ThemeToggle } from 'tiho-component-library';
 import * as Styled from './styles';
 import MyIcon from '../../images/exodus-logo.svg';
 import { useScrollPosition } from '../../hooks/use-scroll-position';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';
 import { Properties } from 'csstype';
 import useClickOutside from '../../hooks/use-click-outside';
@@ -66,6 +66,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
   const [minimizeLogo, setMinimizeLogo] = useState(false);
   const throttledScrollPosition = useDebounce(scrollPosition, 0);
   const [openMenu, setOpenMenu] = useState(-1);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const ref = useClickOutside<HTMLDivElement>(() => {
     setOpenMenu(-1);
@@ -97,6 +98,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
             </Navbar.Collapse>
           </div>
           <Button variant={'primary'} size={'medium'} style={{ width: "168px" }}>Download</Button>
+          <ThemeToggle theme={theme} toggleTheme={() => setTheme(oldTheme => oldTheme === "light" ? "dark" : "light")} />
         </Styled.Container>
       </Styled.Navbar>
     </Styled.AnchorTop>

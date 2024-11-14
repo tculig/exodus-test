@@ -1,62 +1,7 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import * as Styled from './styles';
-import useClickOutside from '../../hooks/use-click-outside';
+import { Dropdown, DropdownProps } from 'tiho-component-library';
 
-const DropdownToggle = ({ svgSrc, text, items, footer, href }: DropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const ref = useClickOutside<HTMLDivElement>(() => {
-    setIsOpen(false);
-  });
-
-  return (
-    <Styled.Dropdown
-      show={true}
-      $isOpen={isOpen}
-      ref={ref}
-    >
-      <Styled.DropdownToggle onClick={() => setIsOpen((oldIsOpen) => !oldIsOpen)}>
-        <Styled.ToggleIconContainer>
-          <img
-            src={svgSrc}
-            alt={text}
-            loading="eager"
-            width="24px"
-            height="24px"
-          />
-        </Styled.ToggleIconContainer>
-        <Styled.ToggleLabel>{text}</Styled.ToggleLabel>
-        <Styled.CarretContainer>
-          {items ? (
-            <Styled.Caret $isOpen={isOpen} />
-          ) : null}
-        </Styled.CarretContainer>
-      </Styled.DropdownToggle>
-      {items ? (
-        <Styled.DropdownMenu>
-          {items.map(({ title, href, icon }, index) => (
-            <Styled.DropdownItem key={index} href={href}>
-              {icon}
-              {title}
-            </Styled.DropdownItem>
-          ))}
-          {footer ? <Styled.Footer>{footer}</Styled.Footer> : null}
-        </Styled.DropdownMenu>
-      ) : null}
-    </Styled.Dropdown>
-  )
-};
-interface DropdownItem {
-  title: string | React.ReactNode,
-  href: string,
-  icon: React.ReactNode,
-}
-interface DropdownProps {
-  text: string,
-  svgSrc: string,
-  items?: DropdownItem[],
-  href?: string,
-  footer?: React.ReactNode,
-}
 const dropdowns: DropdownProps[] = [
   {
     text: "Download Desktop",
@@ -207,7 +152,7 @@ const Header = ({ data, variant = "full" }: HeaderProps) => {
           {dropdowns.map((dropdownData, index) => {
             return (
               <Fragment key={index}>
-                {DropdownToggle(dropdownData)}
+                {Dropdown(dropdownData)}
               </Fragment>
             )
 
