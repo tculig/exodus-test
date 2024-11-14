@@ -5,8 +5,7 @@ import {
     Container as BootstrapContainer,
     NavDropdown as BootstrapNavDropdown,
 } from 'react-bootstrap';
-import { Properties } from 'csstype';
-type CSSColor = Properties['color'];
+
 export const AnchorTop = styled.div`
     position: fixed;
     top: 0;
@@ -156,8 +155,8 @@ export const ExodusLogoWrapper = styled.div`
 
 interface NavbarIconProps {
     readonly $iconOffset: number;
-    readonly $iconBgGradient: CSSColor;
-    readonly $iconBoxShadowColor: CSSColor;
+    readonly $iconBgGradient: string;
+    readonly $iconBoxShadowColor: string;
 }
 export const NavIcon = styled.i<NavbarIconProps>`
     background-image: ${({ $iconBgGradient }) => `${$iconBgGradient};`}

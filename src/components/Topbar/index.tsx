@@ -1,11 +1,10 @@
 import { Navbar, Nav } from 'react-bootstrap';
-import { Button, ThemeToggle } from 'tiho-component-library';
+import { Button } from 'tiho-component-library';
 import * as Styled from './styles';
 import MyIcon from '../../images/exodus-logo.svg';
 import { useScrollPosition } from '../../hooks/use-scroll-position';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';
-import { Properties } from 'csstype';
 import useClickOutside from '../../hooks/use-click-outside';
 
 const MenuItem = ({ title, description, href, target, iconOffset, iconBgGradient, iconBoxShadowColor }: MenuItemInterface & { target: string }) => (
@@ -51,14 +50,13 @@ const MenuSection = ({ title, sections, openMenu, setOpenMenu, index }: {
     </Styled.NavDropdown>
   )
 };
-type CSSColor = Properties['color'];
 interface MenuItemInterface {
   title: string,
   description: string,
   href: string,
   iconOffset: number,
-  iconBgGradient: CSSColor, // TODO: CSSColor type doesn't seem to work as expected
-  iconBoxShadowColor: CSSColor, // TODO: CSSColor type doesn't seem to work as expected
+  iconBgGradient: string,
+  iconBoxShadowColor: string,
 }
 
 const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuItemInterface[]>> }) => {
@@ -66,7 +64,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
   const [minimizeLogo, setMinimizeLogo] = useState(false);
   const throttledScrollPosition = useDebounce(scrollPosition, 0);
   const [openMenu, setOpenMenu] = useState(-1);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   const ref = useClickOutside<HTMLDivElement>(() => {
     setOpenMenu(-1);
@@ -86,7 +84,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
       <Styled.Navbar variant="dark" expand="lg" $collapsed={minimizeLogo}>
         <Styled.Container fluid>
           <Styled.ExodusLogoWrapper>
-            <MyIcon className={minimizeLogo ? 'exodus-minimize-logo' : ''} />
+            <MyIcon />
           </Styled.ExodusLogoWrapper>
           <div>
             <Navbar.Collapse>
@@ -98,7 +96,6 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
             </Navbar.Collapse>
           </div>
           <Button variant={'primary'} size={'medium'} style={{ width: "168px" }}>Download</Button>
-          <ThemeToggle theme={theme} toggleTheme={() => setTheme(oldTheme => oldTheme === "light" ? "dark" : "light")} />
         </Styled.Container>
       </Styled.Navbar>
     </Styled.AnchorTop>
