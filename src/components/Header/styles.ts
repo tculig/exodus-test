@@ -86,3 +86,29 @@ export const ButtonContainer = styled.div`
     gap: 20px;
     margin-top: 40px;
 `;
+
+export const CarretContainer = styled.div`
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+`;
+interface CaretProps {
+    $isOpen: boolean;
+}
+export const Caret = styled.div<CaretProps>`
+    color: #fff;
+
+    &::after {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        content: '';
+        display: inline-block;
+        padding: 3px;
+        position: relative;
+        transition: transform 0.2s ease-in-out;
+        transform: ${({ $isOpen }) => ($isOpen ? 'rotate(225deg)' : 'rotate(45deg)')};
+        transform-origin: 75% 70%;
+        vertical-align: 0.255em;
+    }
+`;
