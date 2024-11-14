@@ -1,5 +1,6 @@
 import { Row, Col } from 'react-bootstrap';
 import SummaryPanelItem, { type SummaryPanelItemProps } from './SummaryPanelItem';
+import * as Styled from './styles';
 
 interface Props {
   nodes: SummaryPanelItemProps[]
@@ -7,17 +8,17 @@ interface Props {
 
 const SummaryPage = ({ nodes }: Props) => {
   return (
-    <section style={{ maxWidth: "1170px" }}>
-      <Row>
+    <Styled.Section>
+      <Row className='gx-5'>
         {nodes.map((node, index) => {
           return (
-            <Col key={index} md={4}>
-              <SummaryPanelItem data={node} />
+            <Col key={index} md={4} style={{ marginTop: "30px" }}>
+              <SummaryPanelItem data={node} index={index} />
             </Col>
           );
         })}
       </Row>
-    </section>
+    </Styled.Section>
   );
 };
 

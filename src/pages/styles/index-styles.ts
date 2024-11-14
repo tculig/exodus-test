@@ -17,4 +17,5 @@ export const BackgroundContainer = styled.div`
 
 export const StyledGatsbyImage = styled(GatsbyImage)`
     height: 100%;
+    width: 100%;
 `;

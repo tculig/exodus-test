@@ -15,12 +15,14 @@ export const RootContainer = styled.div`
     box-sizing: initial;
     margin: 0 auto;
     max-width: 1170px;
-    padding-top: 75px;
+    padding: 75px 24px 125px 24px;
     border-top: 1px solid #ffffff1a;
 `;
 
 export const PadRight = styled.div`
     padding-right: 32px;
+    min-width: 180px;
+    max-width: 212px;
 `;
 
 export const Heading = styled.p`

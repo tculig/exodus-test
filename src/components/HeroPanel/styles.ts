@@ -25,8 +25,25 @@ export const Subheading = styled.p`
     max-width: 770px;
 `;
 
-export const RootContainer = styled(Container)``;
+export const RootContainer = styled(Container)`
+    flex-grow: 1;
+    width: 100%;
+`;
 
 export const ImageRow = styled(Row)`
     height: 600px;
+`;
+interface SectionProps {
+    $dark: boolean;
+}
+
+export const Section = styled.section<SectionProps>`
+    background: ${({ $dark }) => ($dark ? '#10101a' : 'unset')}!important;
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 32px 32px 32px;
+    padding: 140px 90px 90px;
+    max-width: 1540px;
+    width: 1500px;
 `;

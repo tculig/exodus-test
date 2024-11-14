@@ -63,8 +63,9 @@ const BitcoinWalletPage = ({ data }) => {
         </Styled.BackgroundContainer>
         <StyledGlobals.CenteredContainer>
           <Header data={data.allContentfulHeaderContent.nodes[0]} />
-          {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} />)}
+          {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} dark={index % 2 === 1} />)}
           <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
+          <Header data={data.allContentfulHeaderContent.nodes[0]} variant="short" />
         </StyledGlobals.CenteredContainer>
       </main>
       <Footer />
@@ -82,6 +83,9 @@ query {
       id
       title
       hasBackground
+      rawHtml{
+        rawHtml
+      }
       text {
         text
       }
@@ -108,23 +112,9 @@ query {
     nodes {
       bitcoinSvg {
         url
-      }
-      carretSvg {
-        url
-      }
-      desktopSvg {
-        url
-      }
-      puzzleSvg {
-        url
-      }
-      mobileSvg {
-        url
+        gatsbyImageData
       }
       backgroundImage {
-        gatsbyImageData(layout: CONSTRAINED)
-      }
-      exodusLogo {
         gatsbyImageData(layout: CONSTRAINED)
       }
     }

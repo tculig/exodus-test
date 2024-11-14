@@ -33,7 +33,7 @@ const MenuSection = ({ title, sections, openMenu, setOpenMenu, index }: {
     <Styled.NavDropdown
       title={title}
       onClick={handleClick}
-      show={true}
+      show={openMenu === index}
       $isOpen={openMenu === index}
     >
       {

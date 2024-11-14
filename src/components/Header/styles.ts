@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 import { Container as BootstrapContainer, Dropdown as BootstrapDropdown } from 'react-bootstrap';
 
-export const Container = styled(BootstrapContainer)`
-    margin: 162px 0;
+interface ContainerProps {
+    $variant: 'full' | 'short';
+}
+
+export const Container = styled(BootstrapContainer)<ContainerProps>`
+    margin-top: 162px;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -11,15 +15,76 @@ export const Container = styled(BootstrapContainer)`
     text-align: center;
     width: 100%;
     z-index: 1;
+    border-top: ${({ $variant }) => ($variant === 'short' ? '1px solid #ffffff1a;' : 'none')};
 `;
+interface StyledDropdownMenuProps {
+    $isOpen: boolean;
+}
 
-export const Dropdown = styled(BootstrapDropdown)`
+export const Dropdown = styled(BootstrapDropdown)<StyledDropdownMenuProps>`
     .dropdown-toggle::after {
         display: none;
     }
+
+    && .dropdown-menu {
+        max-height: ${({ $isOpen }) => ($isOpen ? '1000px' : '0')}!important;
+        opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')}!important;
+        transform: translateX(-50%) !important;
+        left: 50% !important;
+        background-clip: padding-box;
+        background: #0e0f15;
+        border-radius: 12px;
+        border: 0;
+        display: flex !important;
+        flex-direction: column;
+        box-shadow: 0 4px 15px 0 #00000014;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        text-align: left;
+        font-size: 15px;
+        min-width: 160px;
+        width: 100%;
+        position: relative;
+        top: ${({ $isOpen }) => ($isOpen ? '100%' : '90%')}!important;
+        transition: all 0.2s ease;
+        z-index: 1000;
+        margin-top: 8px;
+        overflow: hidden;
+    }
 `;
 
-export const DropdownItem = styled(BootstrapDropdown.Item)``;
+export const DropdownItem = styled(BootstrapDropdown.Item)`
+    color: #fffc;
+    display: flex;
+    gap: 10px;
+    transition: all 0.2s ease;
+    padding: 13px 20px !important;
+    align-items: center;
+    &:hover {
+        color: #fff;
+        background-color: #000;
+    }
+`;
+
+export const Footer = styled.div`
+    border-top: 1px solid #ffffff1a;
+    color: #fff6;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 16px 16px 4px;
+    text-align: center;
+
+    a {
+        color: #fff;
+        opacity: 0.4;
+        text-decoration: underline;
+        transition: opacity 0.2s ease;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+`;
 
 export const DropdownMenu = styled(BootstrapDropdown.Menu)``;
 
@@ -111,4 +176,29 @@ export const Caret = styled.div<CaretProps>`
         transform-origin: 75% 70%;
         vertical-align: 0.255em;
     }
+`;
+
+export const RatingContainer = styled.div`
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+`;
+
+export const StarRating = styled.span`
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    padding-left: 4px;
+`;
+
+export const ShortTitle = styled.div`
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
 `;
