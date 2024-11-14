@@ -13,9 +13,9 @@ export const subheadingCSS = css`
 
 export const RootContainer = styled.div`
     box-sizing: initial;
-    margin: 0 auto;
+    margin: 32px auto;
     max-width: 1170px;
-    padding: 75px 24px 125px 24px;
+    padding: 75px 24px 92px 24px;
     border-top: 1px solid #ffffff1a;
 `;
 

@@ -38,7 +38,7 @@ interface SectionProps {
 }
 
 export const Section = styled.section<SectionProps>`
-    background: ${({ $dark }) => ($dark ? '#10101a' : 'unset')}!important;
+    background: ${({ $dark }) => ($dark ? '#171826' : 'unset')}!important;
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
