@@ -80,7 +80,7 @@ export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>
     }
 
     .dropdown-toggle {
-        color: #fff;
+        color: ${({ theme }) => theme.colors.text.primary};
         opacity: 0.8;
         &::after {
             border-color: inherit;

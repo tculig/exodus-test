@@ -12,6 +12,8 @@ export const BackgroundContainer = styled.div`
         inset: 0;
         height: 100%;
         background: linear-gradient(180deg, #1f203300, #1f2033);
+        background: ${({ theme }) =>
+            `linear-gradient(180deg, ${theme.colors.brandColors.baseGradientOverlay}00, ${theme.colors.brandColors.baseGradientOverlay})`};
     }
 `;
 

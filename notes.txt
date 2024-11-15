@@ -13,3 +13,7 @@ Add it to your main project:
 bash
 Copy code
 yalc add your-library-name
+
+
+gatsby clean
+yarn develop
