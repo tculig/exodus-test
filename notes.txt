@@ -1,0 +1,15 @@
+Install yalc:
+
+bash
+Copy code
+npm install -g yalc
+Publish your library locally using yalc:
+
+bash
+Copy code
+yalc publish
+Add it to your main project:
+
+bash
+Copy code
+yalc add your-library-name
