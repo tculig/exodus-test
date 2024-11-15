@@ -6,6 +6,7 @@ import { useScrollPosition } from '../../hooks/use-scroll-position';
 import { Fragment, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';
 import useClickOutside from '../../hooks/use-click-outside';
+import { ThemeToggle } from '../../components/ThemeToggle';
 
 const MenuItem = ({ title, description, href, target, iconOffset, iconBgGradient, iconBoxShadowColor }: MenuItemInterface & { target: string }) => (
   <Styled.NavDropdownItem href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined}>
@@ -95,7 +96,10 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
               </Nav>
             </Navbar.Collapse>
           </div>
-          <Button variant={'primary'} size={'medium'} style={{ width: "168px" }}>Download</Button>
+          <div className="d-flex">
+            <ThemeToggle theme={theme} toggleTheme={() => setTheme(old => old === "dark" ? "light" : "dark")} />
+            <Button variant={'primary'} size={'medium'} style={{ width: "168px", marginLeft: "18px" }}>Download</Button>
+          </div>
         </Styled.Container>
       </Styled.Navbar>
     </Styled.AnchorTop>

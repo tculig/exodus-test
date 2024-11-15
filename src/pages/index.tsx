@@ -1,10 +1,10 @@
 import Layout from "../layouts/BaseLayout/layout"
-import Topbar from "../components/Topbar"
-import Header from "../components/Header"
-import HeroPanel from "../components/HeroPanel"
+import Topbar from "../sections/Topbar"
+import Header from "../sections/Header"
+import HeroPanel from "../sections/HeroPanel"
 import { graphql } from "gatsby"
-import SummaryPanel from "../components/SummaryPanel"
-import Footer from "../components/Footer"
+import SummaryPanel from "../sections/SummaryPanel"
+import Footer from "../sections/Footer"
 import * as Styled from './styles/index-styles';
 import * as StyledGlobals from '../styles/globals';
 
