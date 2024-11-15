@@ -18,7 +18,11 @@ interface NavbarProps {
 }
 
 export const Navbar = styled(BootstrapNavbar)<NavbarProps>`
-    background-color: #1f1b34;
+    background-color: ${({ theme }) => {
+        console.log(theme);
+        //        return theme.colors.brandColors.baseBackground;
+        return '#fff';
+    }};
     display: flex;
     height: ${({ $collapsed }) => ($collapsed ? '56px' : '86px')};
     overflow: visible;

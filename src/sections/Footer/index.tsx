@@ -75,7 +75,7 @@ const Footer = () => {
             <Styled.Subheading>
               Sign up to receive our newsletter with updates about your wallet.
             </Styled.Subheading>
-            <Button variant={'primary'} size={'medium'} style={{ width: "240px", height: "48px", marginTop: "24px" }} onClick={() => { window.open("/newsletter/") }}>Sign me up</Button>
+            <Button variant={'primary'} size={'normal'} style={{ width: "240px", height: "48px", marginTop: "24px" }} onClick={() => { window.open("/newsletter/") }}>Sign me up</Button>
           </div>
         </div>
 

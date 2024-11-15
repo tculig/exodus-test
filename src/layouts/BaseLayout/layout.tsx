@@ -8,12 +8,14 @@ import { useThemeVariant } from "../../hooks/use-theme-variant";
 
 const WithThemeProvider = ({ children }) => {
   const { themeVariant } = useThemeVariant();
-  return (<ExodusThemeProvider themeVariant={themeVariant}>
-    <Styled.BaseContainer>
-      {children}
-    </Styled.BaseContainer>
-  </ExodusThemeProvider>)
+  return (
+    <ExodusThemeProvider themeVariant={themeVariant}>
+      <Styled.BaseContainer>
+        {children}
+      </Styled.BaseContainer>
+    </ExodusThemeProvider>)
 }
+
 const Layout = ({ children }) => {
   return (
     <ThemeVariantProvider>

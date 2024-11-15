@@ -99,7 +99,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
           </div>
           <div className="d-flex">
             <ThemeToggle theme={themeVariant} toggleTheme={toggleTheme} />
-            <Button variant={'primary'} size={'medium'} style={{ width: "168px", marginLeft: "18px" }}>Download</Button>
+            <Button variant={'primary'} size={'normal'} style={{ width: "168px", marginLeft: "18px" }}>Download</Button>
           </div>
         </Styled.Container>
       </Styled.Navbar>
