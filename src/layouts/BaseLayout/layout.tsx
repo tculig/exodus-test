@@ -1,15 +1,26 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../styles/global.css"
-import { ExodusTheme, ExodusThemeProvider } from "tiho-component-library"
+import { ExodusThemeProvider } from "tiho-component-library"
 import * as Styled from './styles';
+import { ThemeVariantProvider } from "../../context/theme-variant";
+import { useThemeVariant } from "../../hooks/use-theme-variant";
 
+
+const WithThemeProvider = ({ children }) => {
+  const { themeVariant } = useThemeVariant();
+  return (<ExodusThemeProvider themeVariant={themeVariant}>
+    <Styled.BaseContainer>
+      {children}
+    </Styled.BaseContainer>
+  </ExodusThemeProvider>)
+}
 const Layout = ({ children }) => {
   return (
-    <ExodusThemeProvider theme={ExodusTheme}>
-      <Styled.BaseContainer>
+    <ThemeVariantProvider>
+      <WithThemeProvider>
         {children}
-      </Styled.BaseContainer>
-    </ExodusThemeProvider>
+      </WithThemeProvider>
+    </ThemeVariantProvider>
   )
 }
 

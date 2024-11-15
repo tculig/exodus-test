@@ -7,6 +7,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';
 import useClickOutside from '../../hooks/use-click-outside';
 import { ThemeToggle } from '../../components/ThemeToggle';
+import { useThemeVariant } from '../../hooks/use-theme-variant';
 
 const MenuItem = ({ title, description, href, target, iconOffset, iconBgGradient, iconBoxShadowColor }: MenuItemInterface & { target: string }) => (
   <Styled.NavDropdownItem href={href} target={target} rel={target === "_blank" ? "noreferrer" : undefined}>
@@ -65,7 +66,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
   const [minimizeLogo, setMinimizeLogo] = useState(false);
   const throttledScrollPosition = useDebounce(scrollPosition, 0);
   const [openMenu, setOpenMenu] = useState(-1);
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const { themeVariant, toggleTheme } = useThemeVariant();
 
   const ref = useClickOutside<HTMLDivElement>(() => {
     setOpenMenu(-1);
@@ -97,7 +98,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
             </Navbar.Collapse>
           </div>
           <div className="d-flex">
-            <ThemeToggle theme={theme} toggleTheme={() => setTheme(old => old === "dark" ? "light" : "dark")} />
+            <ThemeToggle theme={themeVariant} toggleTheme={toggleTheme} />
             <Button variant={'primary'} size={'medium'} style={{ width: "168px", marginLeft: "18px" }}>Download</Button>
           </div>
         </Styled.Container>
