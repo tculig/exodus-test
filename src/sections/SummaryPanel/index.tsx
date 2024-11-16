@@ -3,7 +3,7 @@ import SummaryPanelItem, { type SummaryPanelItemProps } from './SummaryPanelItem
 import * as Styled from './styles';
 
 interface Props {
-  nodes: SummaryPanelItemProps[]
+  readonly nodes: readonly SummaryPanelItemProps[]
 }
 
 const SummaryPage = ({ nodes }: Props) => {

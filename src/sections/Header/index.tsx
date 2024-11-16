@@ -12,6 +12,7 @@ import GooglePlayIcon from '../../images/google-play-icon.svg';
 import DesktopIcon from '../../images/desktop.svg';
 import MobileIcon from '../../images/mobile.svg';
 import PuzzleIcon from '../../images/puzzle.svg';
+import BitcoinImage from '../../images/bitcoin.svg';
 
 const dropdowns: DropdownProps[] = [
   {
@@ -21,27 +22,27 @@ const dropdowns: DropdownProps[] = [
       {
         title: "Download Windows (64-bit)",
         href: "#windows",
-        icon: <WindowsIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
+        icon: <WindowsIcon style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Mac (Intel)",
         href: "#mac",
-        icon: <MacIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
+        icon: <MacIcon style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Mac (Apple Silicon)",
         href: "#max-m1",
-        icon: <M1Icon width="24px" height="24px" style={{ opacity: "0.3" }} />,
+        icon: <M1Icon style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Linux (.deb)",
         href: "#linux-deb",
-        icon: <DebIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
+        icon: <DebIcon style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Linux (.zip)",
         href: "#linux-zip",
-        icon: <LinuxIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
+        icon: <LinuxIcon style={{ opacity: "0.3" }} />,
       }
     ],
     footer: (
@@ -78,7 +79,7 @@ const dropdowns: DropdownProps[] = [
           <Styled.StarRating>4.6</Styled.StarRating>
         </Styled.RatingContainer>,
         href: "#app-store",
-        icon: <AppStoreIcon height="24px" />,
+        icon: <AppStoreIcon />,
       },
       {
         title: <Styled.RatingContainer>
@@ -86,7 +87,7 @@ const dropdowns: DropdownProps[] = [
           <Styled.StarRating>4.5</Styled.StarRating>
         </Styled.RatingContainer>,
         href: "#google-play",
-        icon: <GooglePlayIcon height="24px" />,
+        icon: <GooglePlayIcon />,
       }
     ]
   },
@@ -97,23 +98,15 @@ const dropdowns: DropdownProps[] = [
   },
 ]
 interface HeaderProps {
-  data: {
-    bitcoinSvg: {
-      url: string
-    }
-  },
-  variant?: "full" | "short";
+  readonly variant?: "full" | "short";
 }
-const Header = ({ data, variant = "full" }: HeaderProps) => {
+const Header = ({ variant = "full" }: HeaderProps) => {
   return (
     <header>
       <Styled.Container $variant={variant}>
         {variant === "full" ? (
           <>
-            <img
-              src={data.bitcoinSvg.url}
-              alt="Bitcoin (BTC)"
-              loading="eager"
+            <BitcoinImage
               width="80px"
               height="80px"
             />

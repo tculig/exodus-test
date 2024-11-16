@@ -1,5 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
-import { graphql, useStaticQuery, PageProps } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import * as Styled from './styles'
 import { Button } from 'tiho-component-library';
 import ExodusLogo from '../../images/exodus-logo.svg';

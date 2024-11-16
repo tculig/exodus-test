@@ -5301,10 +5301,10 @@ type LinkColumnsQueryVariables = Exact<{ [key: string]: never; }>;
 
 type LinkColumnsQuery = { readonly allContentfulFooterContent: { readonly nodes: ReadonlyArray<{ readonly linkColumns: { readonly internal: { readonly content: string | null } } | null }> } };
 
-type MainQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type RootQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type MainQueryQuery = { readonly allContentfulHeroPanel: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly hasBackground: boolean | null, readonly rawHtml: { readonly rawHtml: string | null } | null, readonly text: { readonly text: string | null } | null, readonly heroImage: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> }, readonly allContentfulSummaryPanel: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly text: { readonly text: string | null } | null, readonly svgContent: { readonly svgContent: string | null } | null, readonly previewImage: { readonly publicUrl: string, readonly url: string | null, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly file: { readonly contentType: string | null } | null } | null }> }, readonly allContentfulHeaderContent: { readonly nodes: ReadonlyArray<{ readonly bitcoinSvg: { readonly url: string | null, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly backgroundImage: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> } };
+type RootQuery = { readonly allContentfulHeroPanel: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly hasBackground: boolean | null, readonly rawHtml: { readonly rawHtml: string | null } | null, readonly text: { readonly text: string | null } | null, readonly heroImage: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> }, readonly allContentfulSummaryPanel: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly text: { readonly text: string | null } | null, readonly svgContent: { readonly svgContent: string | null } | null, readonly previewImage: { readonly publicUrl: string, readonly url: string | null, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly file: { readonly contentType: string | null } | null } | null }> } };
 
 
 }

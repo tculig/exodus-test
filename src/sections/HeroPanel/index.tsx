@@ -1,5 +1,4 @@
 import { Row } from 'react-bootstrap';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import * as Styled from './styles';
 import * as StyledGlobals from '../../styles/globals';
 import { renderGatsbyImage } from '../../utils';
@@ -7,23 +6,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 interface Props {
-  withBg: boolean,
-  data: {
-    id: string,
-    title: string,
-    hasBackground: boolean
-    text: {
-      text: string,
-    }
-    heroImage: {
-      gatsbyImageData: IGatsbyImageData
-    }
-    rawHtml: {
-      rawHtml: string
-    },
-    rawHtml2: any
-
-  }
+  readonly withBg: boolean,
+  readonly data: Queries.RootQuery["allContentfulHeroPanel"]["nodes"][number]
 }
 
 const HeroPanel = ({ data, withBg = false }: Props) => {
@@ -65,7 +49,7 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
               >
                 <Styled.ImageRow>
                   <Styled.CenteredCol>
-                    {renderGatsbyImage({ image: heroImage, alt: "Exodus Bitcoin Mobile Wallet", style: { objectFit: "contain" } })}
+                    {heroImage ? renderGatsbyImage({ image: heroImage, alt: "Exodus Bitcoin Mobile Wallet", style: { objectFit: "contain" } }) : null}
                   </Styled.CenteredCol>
                 </Styled.ImageRow>
               </motion.div>
@@ -76,7 +60,7 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
                     {title}
                   </StyledGlobals.Heading>
                   <StyledGlobals.Subheading>
-                    {text.text}
+                    {text?.text}
                   </StyledGlobals.Subheading>
                 </Styled.CenteredCol>
               </Row>

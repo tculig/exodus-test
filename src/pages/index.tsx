@@ -2,11 +2,12 @@ import Layout from "../layouts/BaseLayout/layout"
 import Topbar from "../sections/Topbar"
 import Header from "../sections/Header"
 import HeroPanel from "../sections/HeroPanel"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import SummaryPanel from "../sections/SummaryPanel"
 import Footer from "../sections/Footer"
 import * as Styled from './styles/index-styles';
 import * as StyledGlobals from '../styles/globals';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const navMenuItems = {
   Products: {
@@ -49,23 +50,23 @@ const navMenuItems = {
   },
 };
 
-const BitcoinWalletPage = ({ data }) => {
+const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
   return (
     <Layout>
       <Topbar menuItems={navMenuItems} />
       <main>
         <Styled.BackgroundContainer>
-          <Styled.StyledGatsbyImage
-            image={data.allContentfulHeaderContent.nodes[0].backgroundImage.gatsbyImageData}
-            alt='Exodus Bitcoin Mobile Wallet'
-            loading="eager"
+          <StaticImage
+            src="../images/header-bg-lsize.jpg"
+            alt="Background"
+            style={{ width: "100%", height: "100%" }}
           />
         </Styled.BackgroundContainer>
         <StyledGlobals.CenteredContainer>
-          <Header data={data.allContentfulHeaderContent.nodes[0]} />
+          <Header />
           {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} withBg={index % 2 === 1} />)}
           <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
-          <Header data={data.allContentfulHeaderContent.nodes[0]} variant="short" />
+          <Header variant="short" />
         </StyledGlobals.CenteredContainer>
       </main>
       <Footer />
@@ -77,7 +78,7 @@ export default BitcoinWalletPage
 
 
 export const pageQuery = graphql`
-query MainQuery {
+query Root {
   allContentfulHeroPanel(sort: {order: ASC}) {
     nodes {
       id
@@ -111,17 +112,6 @@ query MainQuery {
         file {
           contentType
         }
-      }
-    }
-  }
-  allContentfulHeaderContent {
-    nodes {
-      bitcoinSvg {
-        url
-        gatsbyImageData
-      }
-      backgroundImage {
-        gatsbyImageData(layout: CONSTRAINED)
       }
     }
   }

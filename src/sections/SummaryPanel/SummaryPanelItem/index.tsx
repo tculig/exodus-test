@@ -1,32 +1,14 @@
 import { Row, Col } from 'react-bootstrap';
 import * as Styled from './styles';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { renderGatsbyImage } from '../../../utils';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export interface SummaryPanelItemProps {
-  id: string,
-  title: string,
-  text: {
-    text: string
-  },
-  previewImage: {
-    publicUrl: string,
-    url: string,
-    gatsbyImageData?: IGatsbyImageData,
-    file: {
-      contentType: string,
-    }
-  },
-  svgContent?: {
-    svgContent: string
-  }
-}
+export type SummaryPanelItemProps = Queries.RootQuery["allContentfulSummaryPanel"]["nodes"][number];
 
 interface Props {
-  data: SummaryPanelItemProps,
-  index: number,
+  readonly data: SummaryPanelItemProps,
+  readonly index: number,
 }
 
 const SummaryPanelItem = ({ data, index }: Props) => {
@@ -68,7 +50,7 @@ const SummaryPanelItem = ({ data, index }: Props) => {
                 {title}
               </Styled.SummaryTitle>
               <Styled.MainText>
-                {text.text}
+                {text?.text}
               </Styled.MainText>
             </Col>
           </Row>
