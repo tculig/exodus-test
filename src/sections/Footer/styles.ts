@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const subheadingCSS = css`
     text-decoration: none;
-    color: #ffffff80;
     color: ${({ theme }) => theme.colors.text.subheading};
     display: block;
     font-size: 15px;
@@ -17,7 +16,6 @@ export const RootContainer = styled.div`
     margin: 32px auto;
     max-width: 1170px;
     padding: 75px 24px 92px 24px;
-    border-top: 1px solid #ffffff1a;
     border-top: ${({ theme }) => `1px solid ${theme.colors.border.subtle}`};
 `;
 
@@ -28,8 +26,7 @@ export const PadRight = styled.div`
 `;
 
 export const Heading = styled.p`
-    color: #fff;
-    color: ${({ theme }) => theme.colors.text.emphasis};
+    color: ${({ theme }) => theme.colors.text.primary};
     font-size: 18px;
     font-weight: 300;
     line-height: 1.78;
@@ -44,7 +41,7 @@ export const Link = styled.a`
     ${subheadingCSS}
 
     &:hover {
-        color: #ffffff;
+        color: ${({ theme }) => theme.colors.text.emphasis};
     }
 `;
 

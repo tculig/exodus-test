@@ -77,7 +77,7 @@ export default BitcoinWalletPage
 
 
 export const pageQuery = graphql`
-query {
+query MainQuery {
   allContentfulHeroPanel(sort: {order: ASC}) {
     nodes {
       id

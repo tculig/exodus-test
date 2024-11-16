@@ -1,7 +1,7 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import { Button } from 'tiho-component-library';
 import * as Styled from './styles';
-import MyIcon from '../../images/exodus-logo.svg';
+import ExodusLogo from '../../images/exodus-logo.svg';
 import { useScrollPosition } from '../../hooks/use-scroll-position';
 import { Fragment, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';
@@ -86,7 +86,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
       <Styled.Navbar variant="dark" expand="lg" $collapsed={minimizeLogo}>
         <Styled.Container fluid>
           <Styled.ExodusLogoWrapper $minimizeLogo={minimizeLogo}>
-            <MyIcon />
+            <ExodusLogo />
           </Styled.ExodusLogoWrapper>
           <div>
             <Navbar.Collapse>

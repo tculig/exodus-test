@@ -1,60 +1,58 @@
 import { Row, Col } from 'react-bootstrap';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, PageProps } from 'gatsby';
 import * as Styled from './styles'
 import { Button } from 'tiho-component-library';
+import ExodusLogo from '../../images/exodus-logo.svg';
+import { z } from 'zod';
+import { useMemo } from 'react';
+
+const LinkColumnsSchema = z.record(
+  // Keys like "Products", "Support", "Learn", "Company" can be any string
+  z.string(),
+  // Nested keys and their values can also be any string, like:
+  // "Web3 Wallet": "/web3-wallet/",
+  //   "Mobile Wallet": "/mobile/"
+  z.record(z.string(), z.string())
+);
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query {
-        allContentfulHeaderContent {
+    query LinkColumns {
+        allContentfulFooterContent {
           nodes {
-            exodusLogo {
-              url
-            }
+             linkColumns {
+                internal
+                  {
+                    content
+                  }
+              } 
           }
         }
     }
   `);
 
-  const linkColumns = {
-    "Products": {
-      "Web3 Wallet": "/web3-wallet/",
-      "Mobile Wallet": "/mobile/",
-      "Desktop Wallet": "/desktop/",
-      "Trezor Hardware Wallet": "/trezor-wallet/",
-      "Earn Crypto Rewards": "/earn-crypto/",
-      "XO Swap": "/xo-swap/",
-      "Passkeys Wallet & SDK": "https://passkeys.foundation/",
-      "Wallet-as-a-Service (Waas)": "/",
-    },
-    "Support": {
-      "24/7 Customer Support": "/contact-support/",
-      "Crypto Assers": "/support/",
-      "Legal Inquiries": "/legal-inquiries/",
-    },
-    "Learn": {
-      "Knowledge Base": "",
-      "YouTube": "",
-      "Newsletter": "",
-    },
-    "Company": {
-      "About Us": "/about/",
-      "Investors": "/investors/",
-      "Careers": "/careers/",
-      "Contact Us": "/contact/",
-      "Brand Guidelines": "/brand/",
-      "Security": "/security/",
-      "Intellectual Property": "/",
+  const linkColumns = useMemo(() => {
+    const rawLinkColumns = data?.allContentfulFooterContent?.nodes[0]?.linkColumns?.internal?.content;
+    if (!rawLinkColumns) return {};
+    try {
+      const parsed = JSON.parse(rawLinkColumns);
+      return LinkColumnsSchema.parse(parsed); // Validate with Zod
+    } catch (error) {
+      console.error('Invalid linkColumns structure:', error);
+      return {}; // Fallback to an empty object
     }
-  }
+  }, [data]);
 
   return (
     <footer>
       <Styled.RootContainer>
+        {/* Navigation and Newsletter Section */}
         <div className="d-flex">
-          <div className="d-flex">
+          {/* Navigation Columns */}
+          <nav className="d-flex" aria-label="Footer Navigation">
             {
               Object.entries(linkColumns).map(([title, links], index) => {
+                if (!links) return;
                 return (
                   <Styled.PadRight key={index}>
                     <div>
@@ -63,31 +61,40 @@ const Footer = () => {
                       </Styled.Heading>
                     </div>
                     <div className="flex-column" >
-                      {Object.entries(links).map(([title, href], indexInner) => <Styled.Link key={indexInner} href={href} target="_blank" >{title}</Styled.Link>)}
+                      {Object.entries(links).map(([title, href], indexInner) =>
+                        <Styled.Link key={indexInner} href={href} target="_blank" >
+                          {title}
+                        </Styled.Link>)
+                      }
                     </div>
                   </Styled.PadRight>
                 )
               })
             }
-          </div>
-          <div style={{ maxWidth: "430px", marginLeft: "auto", width: "310px" }}>
-            <Styled.Heading>Subscribe to Exodus</Styled.Heading>
+          </nav>
+          {/* Newsletter Subscription */}
+          <section style={{ maxWidth: "430px", marginLeft: "auto", width: "310px" }} aria-labelledby="newsletter-heading">
+            <Styled.Heading id="newsletter-heading">Subscribe to Exodus</Styled.Heading>
             <Styled.Subheading>
               Sign up to receive our newsletter with updates about your wallet.
             </Styled.Subheading>
-            <Button variant={'primary'} size={'normal'} style={{ width: "240px", height: "48px", marginTop: "24px" }} onClick={() => { window.open("/newsletter/") }}>Sign me up</Button>
-          </div>
+            <Button
+              variant={'primary'}
+              size={'normal'}
+              style={{ width: "240px", height: "48px", marginTop: "24px" }}
+              onClick={() => { window.open("/newsletter/") }}
+              aria-label="Sign up for newsletter"
+            >
+              Sign me up
+            </Button>
+          </section>
         </div>
-
+        {/* Footer Logo and Copyright */}
         <Row>
           <Col md={6} xs={12} style={{ padding: "60px 0" }}>
             <div className="d-flex align-items-center">
-              <div className="pe-5">
-                <img
-                  src={data?.allContentfulHeaderContent?.nodes[0]?.exodusLogo?.url}
-                  alt="Exodus: Digital blockchain products"
-                  loading="lazy"
-                />
+              <div className="me-5" style={{ width: "140px" }}>
+                <ExodusLogo />
               </div>
               <Styled.CopyrightText>
                 Copyright © 2024 Exodus Movement, Inc.
@@ -97,7 +104,7 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-
+        {/* Terms and Conditions */}
         <Row>
           <Col xs={12}>
             <Styled.Terms>

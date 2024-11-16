@@ -1,113 +1,98 @@
 import { Fragment } from 'react';
 import * as Styled from './styles';
 import { Dropdown, DropdownProps } from 'tiho-component-library';
+import WindowsIcon from '../../images/windows-icon.svg';
+import MacIcon from '../../images/mac-icon.svg';
+import M1Icon from '../../images/m1-icon.svg';
+import DebIcon from '../../images/deb-icon.svg';
+import LinuxIcon from '../../images/linux-icon.svg';
+import StarIcon from '../../images/star.svg';
+import AppStoreIcon from '../../images/app-store-icon.svg';
+import GooglePlayIcon from '../../images/google-play-icon.svg';
+import DesktopIcon from '../../images/desktop.svg';
+import MobileIcon from '../../images/mobile.svg';
+import PuzzleIcon from '../../images/puzzle.svg';
 
 const dropdowns: DropdownProps[] = [
   {
     text: "Download Desktop",
-    svgSrc: "../../images/desktop.svg",
+    icon: <DesktopIcon />,
     items: [
       {
         title: "Download Windows (64-bit)",
         href: "#windows",
-        icon: <img
-          src="../../images/windows-icon.svg"
-          alt=""
-          width="24px"
-          height="24px"
-          style={{ opacity: "0.3" }}
-        />,
+        icon: <WindowsIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Mac (Intel)",
         href: "#mac",
-        icon: <img
-          src="../../images/mac-icon.svg"
-          alt=""
-          width="24px"
-          height="24px"
-          style={{ opacity: "0.3" }}
-        />,
+        icon: <MacIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Mac (Apple Silicon)",
         href: "#max-m1",
-        icon: <img
-          src="../../images/m1-icon.svg"
-          alt=""
-          width="24px"
-          height="24px"
-          style={{ opacity: "0.3" }}
-        />,
+        icon: <M1Icon width="24px" height="24px" style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Linux (.deb)",
         href: "#linux-deb",
-        icon: <img
-          src="../../images/deb-icon.svg"
-          alt=""
-          width="24px"
-          height="24px"
-          style={{ opacity: "0.3" }}
-        />,
+        icon: <DebIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
       },
       {
         title: "Download Linux (.zip)",
         href: "#linux-zip",
-        icon: <img
-          src="../../images/linux-icon.svg"
-          alt=""
-          width="24px"
-          height="24px"
-          style={{ opacity: "0.3" }}
-        />,
+        icon: <LinuxIcon width="24px" height="24px" style={{ opacity: "0.3" }} />,
       }
     ],
     footer: (
-      <span>By downloading Exodus, you agree to the <a target="_blank" rel="noreferrer noopener" href="/terms/">Terms of Use</a> and <a target="_blank" rel="noreferrer noopener" href="/privacy/">Privacy Policy</a></span>
+      <span>
+        By downloading Exodus, you agree to the{' '}
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href="/terms/"
+          aria-label="Terms of Use"
+        >
+          Terms of Use
+        </a>{' '}
+        and{' '}
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href="/privacy/"
+          aria-label="Privacy Policy"
+        >
+          Privacy Policy
+        </a>
+        .
+      </span>
     )
   },
   {
     text: "Download Mobile",
-    svgSrc: "../../images/mobile.svg",
+    icon: <MobileIcon />,
     items: [
       {
         title: <Styled.RatingContainer>
-          <img
-            src="../../images/star.svg"
-            alt=""
-            height="16px"
-          />
+          <StarIcon height="16px" />
           <Styled.StarRating>4.6</Styled.StarRating>
         </Styled.RatingContainer>,
         href: "#app-store",
-        icon: <img
-          src="../../images/app-store-icon.svg"
-          alt=""
-          height="24px"
-        />,
+        icon: <AppStoreIcon height="24px" />,
       },
       {
         title: <Styled.RatingContainer>
-          <img
-            src="../../images/star.svg"
-            alt=""
-            height="16px"
-          />
+          <StarIcon height="16px" />
           <Styled.StarRating>4.5</Styled.StarRating>
         </Styled.RatingContainer>,
         href: "#google-play",
-        icon: <img
-          src="../../images/google-play-icon.svg"
-          alt=""
-          height="24px"
-        />,
+        icon: <GooglePlayIcon height="24px" />,
       }
     ]
   },
   {
     text: "Download Extension",
-    svgSrc: "../../images/puzzle.svg",
+    icon: <PuzzleIcon />,
     href: "",
   },
 ]
@@ -148,16 +133,18 @@ const Header = ({ data, variant = "full" }: HeaderProps) => {
             <span className="x-break-sm">&nbsp;and Swap Bitcoin.</span>
           </Styled.ShortTitle>
         ) : null}
-        <Styled.ButtonContainer className="break-sm">
-          {dropdowns.map((dropdownData, index) => {
-            return (
-              <Fragment key={index}>
-                {Dropdown(dropdownData)}
-              </Fragment>
-            )
+        <nav aria-label="Download Options">
+          <Styled.ButtonContainer className="break-sm">
+            {dropdowns.map((dropdownData, index) => {
+              return (
+                <Fragment key={index}>
+                  {Dropdown(dropdownData)}
+                </Fragment>
+              )
 
-          })}
-        </Styled.ButtonContainer>
+            })}
+          </Styled.ButtonContainer>
+        </nav>
       </Styled.Container>
     </header>
   )
