@@ -7,7 +7,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 interface Props {
-  dark: boolean,
+  withBg: boolean,
   data: {
     id: string,
     title: string,
@@ -26,7 +26,7 @@ interface Props {
   }
 }
 
-const HeroPanel = ({ data, dark = false }: Props) => {
+const HeroPanel = ({ data, withBg = false }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const { title, text, heroImage, rawHtml } = data;
@@ -45,7 +45,7 @@ const HeroPanel = ({ data, dark = false }: Props) => {
         width: "100%", display: "flex", justifyContent: "center"
       }}
     >
-      <Styled.Section $dark={dark}>
+      <Styled.Section $withBg={withBg}>
 
         <Styled.RootContainer>
           {rawHtml?.rawHtml ? (

@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "tiho-component-library": {
-      "signature": "eb211a24a9854c0e2490f33db5c7317b",
+      "signature": "102e526817b77662a32eacb58bf16f09",
       "file": true,
       "replaced": "^0.1.0"
     }

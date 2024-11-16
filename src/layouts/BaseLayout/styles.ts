@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BaseContainer = styled.div`
-    background: #1f2033;
+    background: ${({ theme }) => theme.colors.brandColors.baseGradientOverlay};
     width: 100%;
     overflow-y: hidden;
 `;

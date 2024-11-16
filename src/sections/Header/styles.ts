@@ -15,11 +15,11 @@ export const Container = styled(BootstrapContainer)<ContainerProps>`
     text-align: center;
     width: 100%;
     z-index: 1;
-    border-top: ${({ $variant }) => ($variant === 'short' ? '1px solid #ffffff1a;' : 'none')};
+    border-top: ${({ theme, $variant }) => ($variant === 'short' ? `1px solid ${theme.colors.border.subtle};` : 'none')};
 `;
 
 export const Header1 = styled.h1`
-    color: #fff;
+    color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 64px;
     font-weight: 300;
     line-height: 1.1;
@@ -29,6 +29,7 @@ export const Header1 = styled.h1`
 
 export const Header2 = styled.h2`
     color: #fff9;
+    color: ${({ theme }) => theme.colors.text.emphasis90};
     font-size: 24px;
     font-weight: 300;
     line-height: 1.25;
@@ -50,7 +51,7 @@ export const RatingContainer = styled.div`
 `;
 
 export const StarRating = styled.span`
-    color: #fff;
+    color: ${({ theme }) => theme.colors.text.emphasis};
     display: block;
     font-size: 15px;
     font-weight: 500;
@@ -59,7 +60,7 @@ export const StarRating = styled.span`
 `;
 
 export const ShortTitle = styled.div`
-    color: #fff;
+    color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 24px;
     font-weight: 300;
     line-height: 1.5;

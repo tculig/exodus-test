@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const subheadingCSS = css`
     text-decoration: none;
     color: #ffffff80;
+    color: ${({ theme }) => theme.colors.text.subheading};
     display: block;
     font-size: 15px;
     font-weight: 300;
@@ -17,6 +18,7 @@ export const RootContainer = styled.div`
     max-width: 1170px;
     padding: 75px 24px 92px 24px;
     border-top: 1px solid #ffffff1a;
+    border-top: ${({ theme }) => `1px solid ${theme.colors.border.subtle}`};
 `;
 
 export const PadRight = styled.div`
@@ -27,6 +29,7 @@ export const PadRight = styled.div`
 
 export const Heading = styled.p`
     color: #fff;
+    color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 18px;
     font-weight: 300;
     line-height: 1.78;
@@ -46,8 +49,8 @@ export const Link = styled.a`
 `;
 
 export const CopyrightText = styled.div`
-    border-left: 1px solid #313243;
-    color: #ffffff4d;
+    border-left: ${({ theme }) => `1px solid ${theme.colors.border.godzilla}`};
+    color: ${({ theme }) => theme.colors.text.subtle};
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 5px;
@@ -57,7 +60,7 @@ export const CopyrightText = styled.div`
 
 export const Terms = styled.div`
     a {
-        color: #ffffff4d;
+        color: ${({ theme }) => theme.colors.text.subtle};
         display: inline-block;
         text-decoration: underline;
         transition: all 0.2s linear;
@@ -68,7 +71,7 @@ export const Terms = styled.div`
     }
 
     span {
-        color: #ffffff4d;
+        color: ${({ theme }) => theme.colors.text.subtle};
         display: block;
         font-size: 12px;
         font-weight: 400;

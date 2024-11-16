@@ -63,7 +63,7 @@ const BitcoinWalletPage = ({ data }) => {
         </Styled.BackgroundContainer>
         <StyledGlobals.CenteredContainer>
           <Header data={data.allContentfulHeaderContent.nodes[0]} />
-          {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} dark={index % 2 === 1} />)}
+          {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} withBg={index % 2 === 1} />)}
           <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
           <Header data={data.allContentfulHeaderContent.nodes[0]} variant="short" />
         </StyledGlobals.CenteredContainer>
@@ -101,10 +101,16 @@ query {
       text {
         text
       }
+      svgContent {
+        svgContent
+      }
       previewImage {
         publicUrl
         url
         gatsbyImageData
+        file {
+          contentType
+        }
       }
     }
   }

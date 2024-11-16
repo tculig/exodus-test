@@ -10,11 +10,7 @@ const getLocalStorage = <T = unknown>(key: string): T | null => {
 };
 
 const setLocalStorage = (key: string, data: unknown): void => {
-    if (typeof data === 'string') {
-        window.localStorage.setItem(key, data);
-    } else {
-        window.localStorage.setItem(key, JSON.stringify(data));
-    }
+    window.localStorage.setItem(key, JSON.stringify(data));
 };
 
 const removeLocalStorageItem = (key: string): void => {

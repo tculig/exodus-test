@@ -1,5 +1,12 @@
 import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 
+export const RootContainer = styled(Container)`
+    border-radius: 24px;
+    background-color: #1f2033;
+    background-color: ${({ theme }) => theme.colors.background.summary};
+    padding-bottom: 12px;
+`;
 export const SummaryTitle = styled.h2`
     color: #fff;
     font-size: 32px;
@@ -18,4 +25,8 @@ export const MainText = styled.div`
     margin-bottom: 0;
     margin-top: 10px;
     text-align: left;
+`;
+
+export const SvgContainer = styled.div`
+    height: 120px;
 `;

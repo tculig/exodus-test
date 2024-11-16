@@ -1,4 +1,4 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import * as Styled from './styles';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { renderGatsbyImage } from '../../../utils';
@@ -15,6 +15,12 @@ export interface SummaryPanelItemProps {
     publicUrl: string,
     url: string,
     gatsbyImageData?: IGatsbyImageData,
+    file: {
+      contentType: string,
+    }
+  },
+  svgContent?: {
+    svgContent: string
   }
 }
 
@@ -26,6 +32,7 @@ interface Props {
 const SummaryPanelItem = ({ data, index }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { svgContent, title, text } = data;
 
   return (
     <motion.div
@@ -41,7 +48,7 @@ const SummaryPanelItem = ({ data, index }: Props) => {
       }}
     >
       <section>
-        <Container>
+        <Styled.RootContainer>
           <Row>
             <Col style={{ display: "flex" }}>
               <motion.div
@@ -49,21 +56,23 @@ const SummaryPanelItem = ({ data, index }: Props) => {
                 animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 2 }}
                 transition={{ duration: 0.2, ease: "easeInOut", delay: 0.15 * index }}
               >
-                {renderGatsbyImage({ image: data.previewImage, alt: "Summary" })}
+                <Styled.SvgContainer>
+                  {renderGatsbyImage({ image: data.previewImage, rawSVG: svgContent?.svgContent, alt: "Summary" })}
+                </Styled.SvgContainer>
               </motion.div >
             </Col>
           </Row>
           <Row>
             <Col>
               <Styled.SummaryTitle>
-                {data.title}
+                {title}
               </Styled.SummaryTitle>
               <Styled.MainText>
-                {data.text.text}
+                {text.text}
               </Styled.MainText>
             </Col>
           </Row>
-        </Container>
+        </Styled.RootContainer>
       </section>
     </motion.div >
   );

@@ -60,6 +60,7 @@ export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>
         left: 50% !important;
         background-clip: padding-box;
         background-color: #fff;
+        background-color: ${({ theme }) => theme.colors.action.primary.default};
         border: 0;
         gap: 8px !important;
         display: flex !important;
@@ -122,6 +123,7 @@ export const NavDropdownItem = styled(BootstrapNavDropdown.Item)`
 
 export const NavDropdownTitle = styled.span`
     color: #1f2033;
+    color: ${({ theme }) => theme.colors.brandColors.baseTitle};
     display: block;
     font-size: 15px;
     font-weight: 500;
@@ -131,6 +133,7 @@ export const NavDropdownTitle = styled.span`
 
 export const NavDropdownDescription = styled.span`
     color: #1f2033;
+    color: ${({ theme }) => theme.colors.brandColors.baseTitle};
     display: block;
     font-size: 13px;
     font-weight: 400;
@@ -139,17 +142,14 @@ export const NavDropdownDescription = styled.span`
     opacity: 0.8;
 `;
 
-export const ExodusLogoWrapper = styled.div`
+export const ExodusLogoWrapper = styled.div<{ $minimizeLogo: boolean }>`
     width: 156px;
     height: 32px;
 
     #exodus-logotype {
         transition: all 0.2s ease;
-    }
-
-    .exodus-minimize-logo #exodus-logotype {
-        opacity: 0;
-        transform: translateX(-16px);
+        opacity: ${({ $minimizeLogo }) => ($minimizeLogo ? '0' : '1')};
+        transform: ${({ $minimizeLogo }) => ($minimizeLogo ? 'translateX(-16px)' : 'translateX(0)')};
     }
 `;
 
@@ -184,6 +184,7 @@ export const NavIcon = styled.i<NavbarIconProps>`
 
 export const NavTitle = styled.div`
     color: #1f2033;
+    color: ${({ theme }) => theme.colors.brandColors.baseTitle};
     display: block;
     font-size: 10px;
     font-weight: 500;
