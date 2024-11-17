@@ -58,22 +58,6 @@ export const ButtonContainer = styled.div`
     }
 `;
 
-export const RatingContainer = styled.div`
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-`;
-
-export const StarRating = styled.span`
-    color: ${({ theme }) => theme.colors.text.emphasis};
-    display: block;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 20px;
-    padding-left: 4px;
-`;
-
 export const ShortTitle = styled.div`
     color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 24px;

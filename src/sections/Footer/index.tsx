@@ -11,7 +11,7 @@ const LinkColumnsSchema = z.record(
   z.string(),
   // Nested keys and their values can also be any string, like:
   // "Web3 Wallet": "/web3-wallet/",
-  //   "Mobile Wallet": "/mobile/"
+  // "Mobile Wallet": "/mobile/"
   z.record(z.string(), z.string())
 );
 

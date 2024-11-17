@@ -14,9 +14,9 @@ require("dotenv").config({
 module.exports = {
   graphqlTypegen: true,
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Exodus Frontend Test`,
+    description: `Exodus Frontend Test`,
+    author: `@tculig`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
@@ -47,6 +47,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locales`, // This name should match `localeJsonSourceName` in the plugin options
+        path: `${__dirname}/locales`, // Path to your translation files
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -68,6 +75,25 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    // gatsby-plugin-react-i18next configuration
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locales`, // Name given to `gatsby-source-filesystem` for translation files
+        languages: [`en`, `es`], // List of supported languages
+        defaultLanguage: `en`, // Default language
+        siteUrl: `localhost:8000`, // Your site's URL
+
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // React already does escaping
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+        exclude: ['/dev-404-page/'], // Exclude the dev-404-page
       },
     },
   ],

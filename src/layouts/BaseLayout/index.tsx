@@ -5,7 +5,6 @@ import * as Styled from './styles';
 import { ThemeVariantProvider } from "../../context/theme-variant";
 import { useThemeVariant } from "../../hooks/use-theme-variant";
 
-
 const WithThemeProvider = ({ children }) => {
   const { themeVariant } = useThemeVariant();
   return (

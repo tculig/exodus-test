@@ -154,7 +154,6 @@ export const NavDropdownDescription = styled.span`
     font-size: 13px;
     font-weight: 400;
     line-height: 1.6;
-    white-space: nowrap;
     opacity: 0.8;
 `;
 
