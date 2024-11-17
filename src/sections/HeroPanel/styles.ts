@@ -42,8 +42,8 @@ export const Section = styled.section<SectionProps>`
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
-    margin: 0 32px 32px 32px;
-    padding: 140px 90px 90px;
+    margin: 32px;
+    padding-top: 140px;
     max-width: 1540px;
     width: 1500px;
 `;
