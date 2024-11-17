@@ -1,4 +1,4 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { layout } from '../../styles/globals';
 
@@ -25,9 +25,14 @@ export const Subheading = styled.p`
     max-width: 770px;
 `;
 
-export const RootContainer = styled(Container)`
+export const RootContainer = styled.div<SectionProps>`
     flex-grow: 1;
     width: 100%;
+    background: ${({ theme, $withBg }) => ($withBg ? theme.colors.background.panel : 'unset')}!important;
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 90px;
 `;
 
 export const ImageRow = styled(Row)`
@@ -37,13 +42,8 @@ interface SectionProps {
     $withBg: boolean;
 }
 
-export const Section = styled.section<SectionProps>`
-    background: ${({ theme, $withBg }) => ($withBg ? theme.colors.background.panel : 'unset')}!important;
-    border-radius: 20px;
-    box-sizing: border-box;
-    position: relative;
+export const Section = styled.section`
     margin: 32px;
-    padding-top: 140px;
     max-width: 1540px;
     width: 1500px;
 `;

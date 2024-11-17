@@ -1,14 +1,12 @@
 import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
 
-export const RootContainer = styled(Container)`
+export const RootContainer = styled.div`
     border-radius: 24px;
-    background-color: #1f2033;
     background-color: ${({ theme }) => theme.colors.background.summary};
     padding-bottom: 12px;
 `;
 export const SummaryTitle = styled.h2`
-    color: #fff;
+    color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 32px;
     font-weight: 300;
     line-height: 1.25;
@@ -18,7 +16,7 @@ export const SummaryTitle = styled.h2`
 `;
 
 export const MainText = styled.div`
-    color: #fff9;
+    color: ${({ theme }) => theme.colors.text.emphasis90};
     font-size: 15px;
     font-weight: 400;
     line-height: 1.87;

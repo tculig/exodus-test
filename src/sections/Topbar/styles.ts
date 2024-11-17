@@ -122,7 +122,6 @@ export const NavDropdownItem = styled(BootstrapNavDropdown.Item)`
 `;
 
 export const NavDropdownTitle = styled.span`
-    color: #1f2033;
     color: ${({ theme }) => theme.colors.brandColors.baseTitle};
     display: block;
     font-size: 15px;
@@ -132,7 +131,6 @@ export const NavDropdownTitle = styled.span`
 `;
 
 export const NavDropdownDescription = styled.span`
-    color: #1f2033;
     color: ${({ theme }) => theme.colors.brandColors.baseTitle};
     display: block;
     font-size: 13px;
@@ -143,8 +141,8 @@ export const NavDropdownDescription = styled.span`
 `;
 
 export const ExodusLogoWrapper = styled.div<{ $minimizeLogo: boolean }>`
-    width: 156px;
     height: 32px;
+    min-width: 156px;
 
     #exodus-logotype {
         transition: all 0.2s ease;
@@ -183,7 +181,6 @@ export const NavIcon = styled.i<NavbarIconProps>`
 `;
 
 export const NavTitle = styled.div`
-    color: #1f2033;
     color: ${({ theme }) => theme.colors.brandColors.baseTitle};
     display: block;
     font-size: 10px;

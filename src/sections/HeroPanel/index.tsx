@@ -28,9 +28,9 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
         width: "100%", display: "flex", justifyContent: "center"
       }}
     >
-      <Styled.Section $withBg={withBg}>
+      <Styled.Section>
 
-        <Styled.RootContainer>
+        <Styled.RootContainer $withBg={withBg}>
           {rawHtml?.rawHtml ? (
             <div
               dangerouslySetInnerHTML={{

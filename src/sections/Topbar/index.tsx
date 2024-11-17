@@ -83,7 +83,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
 
   return (
     <Styled.AnchorTop>
-      <Styled.Navbar variant="dark" expand="lg" $collapsed={minimizeLogo}>
+      <Styled.Navbar variant="dark" $collapsed={minimizeLogo}>
         <Styled.Container fluid>
           <Styled.ExodusLogoWrapper $minimizeLogo={minimizeLogo}>
             <ExodusLogo />

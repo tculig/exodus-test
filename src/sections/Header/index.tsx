@@ -106,11 +106,13 @@ const Header = ({ variant = "full" }: HeaderProps) => {
       <Styled.Container $variant={variant}>
         {variant === "full" ? (
           <>
-            <BitcoinImage />
-            <Styled.Header1 className="break-sm">
+            <Styled.ImageContainer>
+              <BitcoinImage style={{ width: "100%", height: "100%" }} />
+            </Styled.ImageContainer>
+            <Styled.Header1>
               Exodus Bitcoin Wallet
             </Styled.Header1>
-            <Styled.Header2 className="x-break-sm">
+            <Styled.Header2 >
               Send, Receive, and Swap With Exodus' Free and Secure BTC Wallet
             </Styled.Header2>
           </>
@@ -118,13 +120,13 @@ const Header = ({ variant = "full" }: HeaderProps) => {
         {variant === "short" ? (
           <Styled.ShortTitle>
             Get Exodus for Desktop,
-            <span className="x-break-sm">&nbsp;Mobile, and Trezor</span>
-            <span className="x-break-sm">&nbsp;to Send, Receive,</span>
-            <span className="x-break-sm">&nbsp;and Swap Bitcoin.</span>
+            <span>&nbsp;Mobile, and Trezor</span>
+            <span>&nbsp;to Send, Receive,</span>
+            <span>&nbsp;and Swap Bitcoin.</span>
           </Styled.ShortTitle>
         ) : null}
         <nav aria-label="Download Options">
-          <Styled.ButtonContainer className="break-sm">
+          <Styled.ButtonContainer>
             {dropdowns.map((dropdownData, index) => {
               return (
                 <Fragment key={index}>
