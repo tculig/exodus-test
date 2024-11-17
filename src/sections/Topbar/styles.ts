@@ -13,17 +13,32 @@ export const AnchorTop = styled.div`
     z-index: 1000;
 `;
 
-interface NavbarProps {
+interface HamburgerProps {
+    readonly $hamburgerOpen: boolean;
+}
+interface ContainerProps {
     readonly $collapsed: boolean;
 }
 
-export const Navbar = styled(BootstrapNavbar)<NavbarProps>`
+export const Navbar = styled(BootstrapNavbar)<HamburgerProps>`
     background-color: ${({ theme }) => theme.colors.brandColors.baseBackground};
     display: flex;
-    height: ${({ $collapsed }) => ($collapsed ? '56px' : '86px')};
+    flex-direction: column;
+    align-items: center;
     overflow: visible;
-    padding: 0;
+    padding: 0 12px !important;
     width: 100%;
+    transition: all 0.2s ease;
+`;
+
+export const Container = styled(BootstrapContainer)<ContainerProps>`
+    height: ${({ $collapsed }) => ($collapsed ? '56px' : '80px')};
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1170px;
+    width: 100%;
+    padding: 0 !important;
     transition: all 0.2s ease;
 
     @media (max-width: 768px) {
@@ -31,24 +46,12 @@ export const Navbar = styled(BootstrapNavbar)<NavbarProps>`
     }
 `;
 
-export const Container = styled(BootstrapContainer)`
-    box-sizing: initial;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1170px;
-    padding: 0 16px;
-    justify-content: space-between;
-`;
-
 export const Nav = styled(BootstrapNav)`
     box-sizing: initial;
     display: flex;
-    justify-content: space-between;
     margin: 0 auto;
     max-width: 1170px;
     padding: 0 16px;
-    justify-content: space-between;
 `;
 
 interface StyledDropdownMenuProps {
@@ -57,13 +60,13 @@ interface StyledDropdownMenuProps {
 
 export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>`
     padding: 0 16px;
+    --bs-navbar-active-color: #fff;
     .dropdown-menu {
         max-height: ${({ $isOpen }) => ($isOpen ? '1000px' : '0')};
         opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
         transform: translateX(-50%);
         left: 50% !important;
         background-clip: padding-box;
-        background-color: #fff;
         background-color: ${({ theme }) => theme.colors.action.primary.default};
         border: 0;
         gap: 8px !important;
@@ -82,6 +85,17 @@ export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>
         z-index: 1000;
         margin-top: 6px;
         overflow: hidden;
+    }
+
+    &.hamburger-menu {
+        transition: none;
+        .dropdown-menu {
+            display: none !important;
+        }
+        .dropdown-menu.show {
+            position: relative !important;
+            display: block !important;
+        }
     }
 
     .dropdown-toggle {
@@ -210,4 +224,11 @@ export const HamburgerContainer = styled.div`
         display: flex !important;
         align-items: center;
     }
+`;
+
+export const HamburgerMenuContainer = styled.div<HamburgerProps>`
+    max-height: ${({ $hamburgerOpen }) => ($hamburgerOpen ? '1200px' : '0px')};
+    overflow: hidden;
+    transition: max-height ${({ $hamburgerOpen }) => ($hamburgerOpen ? '0.6s' : '0.2s')} ease;
+    width: 100%;
 `;

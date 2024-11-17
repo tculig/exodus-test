@@ -1,3 +1,4 @@
+import { Col } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const RootContainer = styled.div`
@@ -13,6 +14,9 @@ export const SummaryTitle = styled.h2`
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: left;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
 `;
 
 export const MainText = styled.div`
@@ -23,8 +27,21 @@ export const MainText = styled.div`
     margin-bottom: 0;
     margin-top: 10px;
     text-align: left;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
 `;
 
 export const SvgContainer = styled.div`
     height: 120px;
+`;
+
+export const Column = styled(Col)`
+    display: flex !important;
+    flex-direction: column;
+    @media (max-width: 768px) {
+        max-width: 320px !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
 `;

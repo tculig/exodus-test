@@ -4,7 +4,7 @@ import { renderGatsbyImage } from '../../../utils';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export type SummaryPanelItemProps = Queries.ContentfulSummaryPanel;
+export type SummaryPanelItemProps = Queries.RootQuery["allContentfulSummaryPanel"]["nodes"][number];
 
 interface Props {
   readonly data: SummaryPanelItemProps,
@@ -32,7 +32,7 @@ const SummaryPanelItem = ({ data, index }: Props) => {
       <section>
         <Styled.RootContainer>
           <Row>
-            <Col style={{ display: "flex" }}>
+            <Styled.Column>
               <motion.div
                 initial={{ opacity: 0, scale: 2 }}
                 animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 2 }}
@@ -42,17 +42,17 @@ const SummaryPanelItem = ({ data, index }: Props) => {
                   {renderGatsbyImage({ image: data.previewImage, rawSVG: svgContent?.svgContent, alt: "Summary" })}
                 </Styled.SvgContainer>
               </motion.div >
-            </Col>
+            </Styled.Column>
           </Row>
           <Row>
-            <Col>
+            <Styled.Column>
               <Styled.SummaryTitle>
                 {title}
               </Styled.SummaryTitle>
               <Styled.MainText>
                 {text?.text}
               </Styled.MainText>
-            </Col>
+            </Styled.Column>
           </Row>
         </Styled.RootContainer>
       </section>

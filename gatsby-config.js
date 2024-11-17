@@ -37,6 +37,7 @@ module.exports = {
           // Set this to 'classic' if you're using React 16.x
           jsxRuntime: 'automatic', // For React 17+
         },
+        svgo: false,
       },
     },
     {
