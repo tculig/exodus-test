@@ -81,6 +81,12 @@ export const ShortTitle = styled.div`
     line-height: 1.5;
     margin: 0;
     text-align: center;
+
+    @media (max-width: 768px) {
+        line-height: 1.33;
+        margin-top: 16px;
+        max-width: 330px;
+    }
 `;
 
 export const ImageContainer = styled.div`

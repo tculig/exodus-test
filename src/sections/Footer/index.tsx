@@ -47,9 +47,9 @@ const Footer = () => {
     <footer>
       <Styled.RootContainer>
         {/* Navigation and Newsletter Section */}
-        <div className="d-flex">
+        <Styled.LinkContainer>
           {/* Navigation Columns */}
-          <nav className="d-flex" aria-label="Footer Navigation">
+          <nav className="d-flex" aria-label="Footer Navigation" style={{ marginRight: "auto" }}>
             {
               Object.entries(linkColumns).map(([title, links], index) => {
                 if (!links) return;
@@ -73,7 +73,7 @@ const Footer = () => {
             }
           </nav>
           {/* Newsletter Subscription */}
-          <section style={{ maxWidth: "430px", marginLeft: "auto", width: "310px" }} aria-labelledby="newsletter-heading">
+          <section style={{ maxWidth: "430px", width: "310px" }} aria-labelledby="newsletter-heading">
             <Styled.Heading id="newsletter-heading">Subscribe to Exodus</Styled.Heading>
             <Styled.Subheading>
               Sign up to receive our newsletter with updates about your wallet.
@@ -88,7 +88,7 @@ const Footer = () => {
               Sign me up
             </Button>
           </section>
-        </div>
+        </Styled.LinkContainer>
         {/* Footer Logo and Copyright */}
         <Row>
           <Col md={6} xs={12} style={{ padding: "60px 0" }}>

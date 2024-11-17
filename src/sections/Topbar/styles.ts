@@ -25,6 +25,10 @@ export const Navbar = styled(BootstrapNavbar)<NavbarProps>`
     padding: 0;
     width: 100%;
     transition: all 0.2s ease;
+
+    @media (max-width: 768px) {
+        height: 56px !important;
+    }
 `;
 
 export const Container = styled(BootstrapContainer)`
@@ -189,4 +193,21 @@ export const NavTitle = styled.div`
     margin-top: 22px;
     opacity: 0.4;
     text-transform: uppercase;
+`;
+
+export const NavContainer = styled.div`
+    @media (max-width: 768px) {
+        display: none !important;
+    }
+`;
+
+export const HamburgerContainer = styled.div`
+    display: none;
+    margin: 8px 0 8px 8px;
+    opacity: 0.9;
+    fill: ${({ theme }) => theme.colors.text.emphasis};
+    @media (max-width: 768px) {
+        display: flex !important;
+        align-items: center;
+    }
 `;

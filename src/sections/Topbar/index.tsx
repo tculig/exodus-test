@@ -2,6 +2,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Button } from 'tiho-component-library';
 import * as Styled from './styles';
 import { ReactComponent as ExodusLogo } from '../../images/exodus-logo.svg';
+import { ReactComponent as HamburgerIcon } from '../../images/hamburger.svg';
 import { useScrollPosition } from '../../hooks/use-scroll-position';
 import { Fragment, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';
@@ -88,7 +89,7 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
           <Styled.ExodusLogoWrapper $minimizeLogo={minimizeLogo}>
             <ExodusLogo />
           </Styled.ExodusLogoWrapper>
-          <div>
+          <Styled.NavContainer>
             <Navbar.Collapse>
               <Nav ref={ref}>
                 {Object.entries(menuItems).map(([section, sections], index) => (
@@ -96,10 +97,13 @@ const TopBar = ({ menuItems }: { menuItems: Record<string, Record<string, MenuIt
                 ))}
               </Nav>
             </Navbar.Collapse>
-          </div>
-          <div className="d-flex">
+          </Styled.NavContainer>
+          <div className="d-flex align-items-center">
             <ThemeToggle theme={themeVariant} toggleTheme={toggleTheme} />
             <Button variant={'primary'} size={'normal'} style={{ width: "168px", marginLeft: "18px" }}>Download</Button>
+            <Styled.HamburgerContainer>
+              <HamburgerIcon />
+            </Styled.HamburgerContainer>
           </div>
         </Styled.Container>
       </Styled.Navbar>

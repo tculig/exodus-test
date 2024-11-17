@@ -76,3 +76,12 @@ export const Terms = styled.div`
         padding-bottom: 25px;
     }
 `;
+
+export const LinkContainer = styled.div`
+    display: flex;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+        gap: 24px;
+    }
+`;

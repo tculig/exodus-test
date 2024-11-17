@@ -53,11 +53,11 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
                 </Styled.ImageRow>
               </motion.div>
 
-              <Row style={{ paddingTop: "65px" }}>
+              <Row style={{ paddingTop: "50px" }}>
                 <Styled.CenteredCol>
-                  <StyledGlobals.Heading>
+                  <Styled.Heading>
                     {title}
-                  </StyledGlobals.Heading>
+                  </Styled.Heading>
                   <StyledGlobals.Subheading>
                     {text?.text}
                   </StyledGlobals.Subheading>
