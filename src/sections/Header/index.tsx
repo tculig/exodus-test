@@ -1,18 +1,18 @@
 import { Fragment } from 'react';
 import * as Styled from './styles';
 import { Dropdown, DropdownProps } from 'tiho-component-library';
-import WindowsIcon from '../../images/windows-icon.svg';
-import MacIcon from '../../images/mac-icon.svg';
-import M1Icon from '../../images/m1-icon.svg';
-import DebIcon from '../../images/deb-icon.svg';
-import LinuxIcon from '../../images/linux-icon.svg';
-import StarIcon from '../../images/star.svg';
-import AppStoreIcon from '../../images/app-store-icon.svg';
-import GooglePlayIcon from '../../images/google-play-icon.svg';
-import DesktopIcon from '../../images/desktop.svg';
-import MobileIcon from '../../images/mobile.svg';
-import PuzzleIcon from '../../images/puzzle.svg';
-import BitcoinImage from '../../images/bitcoin.svg';
+import { ReactComponent as WindowsIcon } from '../../images/windows-icon.svg';
+import { ReactComponent as MacIcon } from '../../images/mac-icon.svg';
+import { ReactComponent as M1Icon } from '../../images/m1-icon.svg';
+import { ReactComponent as DebIcon } from '../../images/deb-icon.svg';
+import { ReactComponent as LinuxIcon } from '../../images/linux-icon.svg';
+import { ReactComponent as StarIcon } from '../../images/star.svg';
+import { ReactComponent as AppStoreIcon } from '../../images/app-store-icon.svg';
+import { ReactComponent as GooglePlayIcon } from '../../images/google-play-icon.svg';
+import { ReactComponent as DesktopIcon } from '../../images/desktop.svg';
+import { ReactComponent as MobileIcon } from '../../images/mobile.svg';
+import { ReactComponent as PuzzleIcon } from '../../images/puzzle.svg';
+import { ReactComponent as BitcoinImage } from '../../images/bitcoin.svg';
 
 const dropdowns: DropdownProps[] = [
   {
@@ -106,10 +106,7 @@ const Header = ({ variant = "full" }: HeaderProps) => {
       <Styled.Container $variant={variant}>
         {variant === "full" ? (
           <>
-            <BitcoinImage
-              width="80px"
-              height="80px"
-            />
+            <BitcoinImage />
             <Styled.Header1 className="break-sm">
               Exodus Bitcoin Wallet
             </Styled.Header1>

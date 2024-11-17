@@ -15,7 +15,6 @@
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-provide-react": "^1.0.2",
-    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-source-contentful": "^8.13.2",
     "gatsby-source-filesystem": "^5.13.1",
@@ -30,7 +29,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "eslint-config-react-app": "^7.0.1",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "prettier": "^2.8.8"
   },
   "resolutions": {

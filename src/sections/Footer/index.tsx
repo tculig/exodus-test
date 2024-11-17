@@ -2,7 +2,7 @@ import { Row, Col } from 'react-bootstrap';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as Styled from './styles'
 import { Button } from 'tiho-component-library';
-import ExodusLogo from '../../images/exodus-logo.svg';
+import { ReactComponent as ExodusLogo } from '../../images/exodus-logo.svg';
 import { z } from 'zod';
 import { useMemo } from 'react';
 

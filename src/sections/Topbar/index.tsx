@@ -1,7 +1,7 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import { Button } from 'tiho-component-library';
 import * as Styled from './styles';
-import ExodusLogo from '../../images/exodus-logo.svg';
+import { ReactComponent as ExodusLogo } from '../../images/exodus-logo.svg';
 import { useScrollPosition } from '../../hooks/use-scroll-position';
 import { Fragment, useEffect, useState } from 'react';
 import { useDebounce } from '../../hooks/use-debounce';

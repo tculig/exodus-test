@@ -91,7 +91,7 @@ query Root {
         text
       }
       heroImage {
-        gatsbyImageData(layout: CONSTRAINED, resizingBehavior: SCALE)
+        gatsbyImageData(layout: CONSTRAINED, resizingBehavior: SCALE, formats: [AUTO, WEBP], placeholder: BLURRED)
       }
     }
   }
@@ -108,7 +108,7 @@ query Root {
       previewImage {
         publicUrl
         url
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
         file {
           contentType
         }

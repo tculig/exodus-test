@@ -4,7 +4,7 @@ import { renderGatsbyImage } from '../../../utils';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export type SummaryPanelItemProps = Queries.RootQuery["allContentfulSummaryPanel"]["nodes"][number];
+export type SummaryPanelItemProps = Queries.ContentfulSummaryPanel;
 
 interface Props {
   readonly data: SummaryPanelItemProps,

@@ -15,7 +15,6 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
   const isInView = useInView(ref, { once: true });
   const { title, text, heroImage, rawHtml } = data;
 
-
   return (
     <motion.div
       ref={ref}

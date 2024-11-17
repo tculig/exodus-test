@@ -23,12 +23,21 @@ module.exports = {
     `gatsby-plugin-provide-react`,
     `gatsby-plugin-image`,
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-svgr',
       options: {
-        rule: {
-          include: /images/
-        }
-      }
+        svgrOptions: {
+          // SVGR configuration options
+          // Use default parameters instead of defaultProps
+          replaceAttrValues: null,
+          svgProps: {
+            role: 'img',
+          },
+          // Disable use of defaultProps in generated components
+          typescript: true, // If you're using TypeScript
+          // Set this to 'classic' if you're using React 16.x
+          jsxRuntime: 'automatic', // For React 17+
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
