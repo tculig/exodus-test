@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Navigation and Newsletter Section */}
         <Styled.LinkContainer>
           {/* Navigation Columns */}
-          <nav className="d-flex" aria-label="Footer Navigation" style={{ marginRight: "auto" }}>
+          <Styled.Nav aria-label="Footer Navigation">
             {
               Object.entries(linkColumns).map(([title, links], index) => {
                 if (!links) return;
@@ -71,7 +71,7 @@ const Footer = () => {
                 )
               })
             }
-          </nav>
+          </Styled.Nav>
           {/* Newsletter Subscription */}
           <section style={{ maxWidth: "430px", width: "310px" }} aria-labelledby="newsletter-heading">
             <Styled.Heading id="newsletter-heading">Subscribe to Exodus</Styled.Heading>

@@ -72,6 +72,7 @@ interface MenuItemInterface {
 const TopBar = ({ menuItems }: { menuItems?: NavItems }) => {
   const scrollPosition = useScrollPosition();
   const isNotSmallScreen = useMediaQuery({ query: "(min-width: 768px)" });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 768px)" });
   const [minimizeLogo, setMinimizeLogo] = useState(false);
   const throttledScrollPosition = useDebounce(scrollPosition, 0);
   const [openMenu, setOpenMenu] = useState(-1);
@@ -82,7 +83,8 @@ const TopBar = ({ menuItems }: { menuItems?: NavItems }) => {
 
   useEffect(() => {
     if (isNotSmallScreen) setOpenMenuHamburger(-1);
-  }, [isNotSmallScreen])
+    if (isSmallScreen) setMinimizeLogo(true);
+  }, [isNotSmallScreen, isSmallScreen])
 
   const ref = useClickOutside<HTMLDivElement>(() => {
     setOpenMenu(-1);
@@ -93,12 +95,13 @@ const TopBar = ({ menuItems }: { menuItems?: NavItems }) => {
   });
 
   useEffect(() => {
+    if (isSmallScreen) return;
     if (throttledScrollPosition > 100) {
       if (minimizeLogo === false) setMinimizeLogo(true);
     } else {
       if (minimizeLogo === true) setMinimizeLogo(false);
     }
-  }, [minimizeLogo, throttledScrollPosition])
+  }, [minimizeLogo, throttledScrollPosition, isSmallScreen])
 
 
   return (
@@ -106,7 +109,7 @@ const TopBar = ({ menuItems }: { menuItems?: NavItems }) => {
       <Styled.Navbar $hamburgerOpen={showHamburgerMenu}>
         <Styled.Container fluid $collapsed={minimizeLogo} >
           <Styled.ExodusLogoWrapper $minimizeLogo={minimizeLogo}>
-            <ExodusLogo />
+            <ExodusLogo width="156px" />
           </Styled.ExodusLogoWrapper>
           {menuItems ? (
             <Styled.NavContainer>

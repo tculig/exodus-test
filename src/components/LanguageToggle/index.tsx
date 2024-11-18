@@ -7,7 +7,7 @@ const LanguageSwitcher: React.FC = () => {
     const { languages, changeLanguage, language } = useI18next();
 
     return (
-        <div style={{ marginRight: "12px" }}>
+        <div style={{ marginRight: "12px", display: "flex" }}>
             {languages.map((lng) => (
                 <div
                     key={lng}

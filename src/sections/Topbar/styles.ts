@@ -100,6 +100,7 @@ export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>
 
     .dropdown-toggle {
         color: ${({ theme }) => theme.colors.text.primary};
+        font-size: 15px;
         opacity: 0.8;
         &::after {
             border-color: inherit;
@@ -119,6 +120,9 @@ export const NavDropdown = styled(BootstrapNavDropdown)<StyledDropdownMenuProps>
         &:hover {
             color: #fff;
             opacity: 1;
+        }
+        &:active {
+            color: #fff;
         }
     }
 `;
@@ -160,11 +164,15 @@ export const NavDropdownDescription = styled.span`
 export const ExodusLogoWrapper = styled.div<{ $minimizeLogo: boolean }>`
     height: 32px;
     min-width: 156px;
-
+    overflow: hidden;
     #exodus-logotype {
         transition: all 0.2s ease;
         opacity: ${({ $minimizeLogo }) => ($minimizeLogo ? '0' : '1')};
         transform: ${({ $minimizeLogo }) => ($minimizeLogo ? 'translateX(-16px)' : 'translateX(0)')};
+    }
+
+    @media (max-width: 768px) {
+        min-width: 32px;
     }
 `;
 

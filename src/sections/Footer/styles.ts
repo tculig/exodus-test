@@ -85,3 +85,11 @@ export const LinkContainer = styled.div`
         gap: 24px;
     }
 `;
+
+export const Nav = styled.nav`
+    display: flex;
+    margin-right: auto;
+    @media (max-width: 768px) {
+        display: block;
+    }
+`;
