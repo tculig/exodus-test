@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ContainerProps {
     $variant: 'full' | 'short';
+    $hydrated: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -14,7 +15,9 @@ export const Container = styled.div<ContainerProps>`
     text-align: center;
     width: 100%;
     z-index: 1;
+    transition: opacity 0.25s ease;
     border-top: ${({ theme, $variant }) => ($variant === 'short' ? `1px solid ${theme.colors.border.subtle};` : 'none')};
+    opacity: ${({ $hydrated }) => ($hydrated ? '1' : '0')};
 `;
 
 export const Header1 = styled.h1`

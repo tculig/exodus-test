@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import * as Styled from './styles';
 import { Dropdown } from 'tiho-component-library';
 import { ReactComponent as BitcoinImage } from '../../images/bitcoin.svg';
@@ -12,10 +12,15 @@ interface HeaderProps {
 const Header = ({ variant = "full" }: HeaderProps) => {
   const dropdowns = useDropdownItems();
   const { t } = useTranslation();
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   return (
     <header>
-      <Styled.Container $variant={variant}>
+      <Styled.Container $variant={variant} $hydrated={hydrated}>
         {variant === "full" ? (
           <>
             <Styled.ImageContainer>

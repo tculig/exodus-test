@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css"
 import "../../styles/global.css"
 import { ExodusThemeProvider } from "tiho-component-library"
 import * as Styled from './styles';
