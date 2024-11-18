@@ -5,10 +5,10 @@ import HeroPanel from "../sections/HeroPanel"
 import { graphql, PageProps } from "gatsby"
 import SummaryPanel from "../sections/SummaryPanel"
 import Footer from "../sections/Footer"
-import * as Styled from './styles/index-styles';
 import * as StyledGlobals from '../styles/globals';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useNavItems } from "../hooks/use-nav-items"
+import styled from "styled-components"
 
 const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
   const navMenuItems = useNavItems();
@@ -16,27 +16,41 @@ const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
     <Layout>
       <Topbar menuItems={navMenuItems} />
       <main>
-        <Styled.BackgroundContainer>
+        <BackgroundContainer>
           <StaticImage
             src="../images/header-bg-lsize.jpg"
             alt="Background"
             style={{ width: "100%", height: "100%" }}
           />
-        </Styled.BackgroundContainer>
+        </BackgroundContainer>
         <StyledGlobals.CenteredContainer>
           <Header />
           {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} withBg={index % 2 === 1} />)}
-          <SummaryPanel nodes={data.allContentfulSummaryPanel.nodes} />
+          <SummaryPanel />
           <Header variant="short" />
         </StyledGlobals.CenteredContainer>
       </main>
       <Footer />
     </Layout>
   )
-}
+};
 
-export default BitcoinWalletPage
+const BackgroundContainer = styled.div`
+    position: absolute;
+    inset: 0;
+    height: 100%;
 
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        background: ${({ theme }) =>
+    `linear-gradient(180deg, ${theme.colors.brandColors.baseGradientOverlay}00, ${theme.colors.brandColors.baseGradientOverlay})`};
+    }
+`;
+
+export default BitcoinWalletPage;
 
 export const pageQuery = graphql`
 query Root($language: String!) {
@@ -62,26 +76,6 @@ query Root($language: String!) {
       }
       heroImage {
         gatsbyImageData(layout: CONSTRAINED, resizingBehavior: SCALE, formats: [AUTO, WEBP], placeholder: BLURRED)
-      }
-    }
-  }
-  allContentfulSummaryPanel(sort: {order: ASC}) {
-    nodes {
-      id
-      title
-      text {
-        text
-      }
-      svgContent {
-        svgContent
-      }
-      previewImage {
-        publicUrl
-        url
-        gatsbyImageData(placeholder: BLURRED)
-        file {
-          contentType
-        }
       }
     }
   }

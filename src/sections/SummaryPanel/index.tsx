@@ -1,25 +1,48 @@
 import { Row } from 'react-bootstrap';
-import SummaryPanelItem, { type SummaryPanelItemProps } from './SummaryPanelItem';
+import SummaryPanelItem from './SummaryPanelItem';
 import * as Styled from './styles';
 import { useMediaQuery } from "react-responsive";
 import { useMemo } from 'react';
-interface Props {
-  readonly nodes: readonly SummaryPanelItemProps[]
-}
+import { graphql, useStaticQuery } from 'gatsby';
 
-const SummaryPage = ({ nodes }: Props) => {
+const SummaryPage = () => {
+  const data: Queries.SummaryPanelQuery = useStaticQuery(graphql`
+   query SummaryPanel{
+    allContentfulSummaryPanel(sort: {order: ASC}) {
+        nodes {
+          id
+          title
+          text {
+            text
+          }
+          svgContent {
+            svgContent
+          }
+          previewImage {
+            publicUrl
+            url
+            gatsbyImageData(placeholder: BLURRED)
+            file {
+              contentType
+            }
+          }
+        }
+      }
+  }
+  `);
   const isSmallScreen = useMediaQuery({ query: "(max-width: 768px)" });
   const isMediumScreen = useMediaQuery({ query: "(max-width: 992px)" });
   const mdValue = useMemo(() => {
     if (isSmallScreen) return 12;
     if (isMediumScreen) return 6;
     return 4;
-  }, [isSmallScreen, isMediumScreen])
+  }, [isSmallScreen, isMediumScreen]);
+
 
   return (
     <Styled.Section>
       <Row className='gx-5'>
-        {nodes.map((node, index) => {
+        {data.allContentfulSummaryPanel.nodes.map((node, index) => {
           return (
             <Styled.Column key={index} md={mdValue}>
               <SummaryPanelItem data={node} index={index} />

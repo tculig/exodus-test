@@ -1,10 +1,10 @@
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import * as Styled from './styles';
 import { renderGatsbyImage } from '../../../utils';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export type SummaryPanelItemProps = Queries.RootQuery["allContentfulSummaryPanel"]["nodes"][number];
+export type SummaryPanelItemProps = Queries.SummaryPanelQuery["allContentfulSummaryPanel"]["nodes"][number];
 
 interface Props {
   readonly data: SummaryPanelItemProps,

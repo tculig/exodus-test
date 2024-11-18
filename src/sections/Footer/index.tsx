@@ -16,7 +16,7 @@ const LinkColumnsSchema = z.record(
 );
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
+  const data: Queries.LinkColumnsQuery = useStaticQuery(graphql`
     query LinkColumns {
         allContentfulFooterContent {
           nodes {
