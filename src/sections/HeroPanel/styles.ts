@@ -23,7 +23,7 @@ export const RootContainer = styled.div<SectionProps>`
     border-radius: 20px;
     box-sizing: border-box;
     position: relative;
-    padding: 90px ${({ $withBg }) => ($withBg ? '90px' : '0px')};
+    padding: 67px ${({ $withBg }) => ($withBg ? '90px' : '0px')};
 
     @media (max-width: 768px) {
         margin: 0 auto;
@@ -42,7 +42,8 @@ export const RootContainer = styled.div<SectionProps>`
 `;
 
 export const ImageRow = styled(Row)`
-    height: 600px;
+    margin-top: 48px !important;
+    height: 606px;
 
     @media (max-width: 768px) {
         display: none !important;
@@ -53,13 +54,13 @@ interface SectionProps {
 }
 
 export const Section = styled.section`
-    margin: 32px;
+    margin: 32px 16px 16px 16px;
     max-width: 1540px;
     width: 1500px;
 `;
 
 export const Heading = styled.div`
-    color: #fff;
+    color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 40px;
     font-weight: 300;
     line-height: 1.25;

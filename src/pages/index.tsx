@@ -19,7 +19,7 @@ const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
         <BackgroundContainer>
           <StaticImage
             src="../images/header-bg-lsize.jpg"
-            alt="Background"
+            alt=""
             style={{ width: "100%", height: "100%" }}
           />
         </BackgroundContainer>
@@ -37,10 +37,11 @@ const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
 
 const BackgroundContainer = styled.div`
     position: absolute;
-    inset: 0;
+    margin-top:-75px;
     height: 100%;
 
     &::after {
+    margin-top: 75px;
         content: '';
         position: absolute;
         inset: 0;

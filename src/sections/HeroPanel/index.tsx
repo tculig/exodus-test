@@ -1,6 +1,5 @@
 import { Row } from 'react-bootstrap';
 import * as Styled from './styles';
-import * as StyledGlobals from '../../styles/globals';
 import { renderGatsbyImage } from '../../utils';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -29,7 +28,6 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
       }}
     >
       <Styled.Section>
-
         <Styled.RootContainer $withBg={withBg}>
           {rawHtml?.rawHtml ? (
             <div
@@ -53,14 +51,14 @@ const HeroPanel = ({ data, withBg = false }: Props) => {
                 </Styled.ImageRow>
               </motion.div>
 
-              <Row style={{ paddingTop: "50px" }}>
+              <Row style={{ paddingTop: "62px" }}>
                 <Styled.CenteredCol>
                   <Styled.Heading>
                     {title}
                   </Styled.Heading>
-                  <StyledGlobals.Subheading>
+                  <Styled.Subheading>
                     {text?.text}
-                  </StyledGlobals.Subheading>
+                  </Styled.Subheading>
                 </Styled.CenteredCol>
               </Row>
             </>

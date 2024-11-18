@@ -6,7 +6,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-    margin-top: 162px;
+    margin-top: 172px;
     align-items: center;
     display: flex;
     flex-direction: column;
