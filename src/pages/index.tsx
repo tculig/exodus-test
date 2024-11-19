@@ -1,6 +1,6 @@
 import Layout from "../layouts/BaseLayout"
 import Topbar from "../components/Topbar"
-import Header from "../sections/Header"
+import DownloadSection from "../sections/DownloadSection"
 import HeroPanel from "../sections/HeroPanel"
 import { graphql, PageProps } from "gatsby"
 import SummaryPanel from "../sections/SummaryPanel"
@@ -24,10 +24,12 @@ const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
           />
         </BackgroundContainer>
         <StyledGlobals.CenteredContainer>
-          <Header />
+          <header>
+            <DownloadSection />
+          </header>
           {data?.allContentfulHeroPanel?.nodes?.map((node, index) => <HeroPanel data={node} key={index} withBg={index % 2 === 1} />)}
           <SummaryPanel />
-          <Header variant="short" />
+          <DownloadSection variant="short" />
         </StyledGlobals.CenteredContainer>
       </main>
       <Footer />
