@@ -10062,10 +10062,10 @@ through@^2.3.6:
   resolved "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
-tiho-component-library@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/tiho-component-library/-/tiho-component-library-0.1.3.tgz#28f82a371e776c8328e6c4af19d7b7aa2e903d1e"
-  integrity sha512-Cx85gud5YkrSAFL9ZRanvzMRAL1oIbhl3sqoENCTdIHBCzWS2cj9LDMUlXXIkVihJJmyOwsIcyGwOxz9bCDUeg==
+tiho-component-library@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/tiho-component-library/-/tiho-component-library-0.1.4.tgz#3c8441dc5194830209af5b8d6f82dbd62562a39f"
+  integrity sha512-EKCvUcfiwVSnTz2Vh25xSCXuNffjS109MJJ3GaLiS4PiNtHp5ZIzZ6vQojQ/0GBnMzNUeSfFdlQz6l3o+0+ukw==
 
 timers-ext@^0.1.7:
   version "0.1.8"

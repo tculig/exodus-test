@@ -90,6 +90,7 @@ const getDropdownTranslactions = (language: String): DropdownProps[] | undefined
                         ),
                         href: '#app-store',
                         icon: <AppStoreIcon />,
+                        ariaLabel: "App Store link"
                     },
                     {
                         title: (
@@ -100,6 +101,7 @@ const getDropdownTranslactions = (language: String): DropdownProps[] | undefined
                         ),
                         href: '#google-play',
                         icon: <GooglePlayIcon />,
+                        ariaLabel: "Google Play link"
                     },
                 ],
             },
@@ -167,6 +169,7 @@ const getDropdownTranslactions = (language: String): DropdownProps[] | undefined
                         ),
                         href: '#app-store',
                         icon: <AppStoreIcon />,
+                        ariaLabel: "App Store link"
                     },
                     {
                         title: (
@@ -177,6 +180,7 @@ const getDropdownTranslactions = (language: String): DropdownProps[] | undefined
                         ),
                         href: '#google-play',
                         icon: <GooglePlayIcon />,
+                        ariaLabel: "Google Play link"
                     },
                 ],
             },

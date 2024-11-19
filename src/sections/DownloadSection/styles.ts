@@ -15,12 +15,14 @@ export const Container = styled.div<ContainerProps>`
     text-align: center;
     width: 100%;
     z-index: 1;
+    max-width: 1000px;
     transition: opacity 0.25s ease;
     border-top: ${({ theme, $variant }) => ($variant === 'short' ? `1px solid ${theme.colors.border.subtle};` : 'none')};
     opacity: ${({ $hydrated }) => ($hydrated ? '1' : '0')};
+    margin-bottom: ${({ $variant }) => ($variant === 'short' ? `100px` : '0')};
 `;
 
-export const Header1 = styled.h1`
+export const DownloadSection1 = styled.h1`
     color: ${({ theme }) => theme.colors.text.emphasis};
     font-size: 64px;
     font-weight: 300;
@@ -36,7 +38,7 @@ export const Header1 = styled.h1`
     }
 `;
 
-export const Header2 = styled.h2`
+export const DownloadSection2 = styled.h2`
     color: ${({ theme }) => theme.colors.text.emphasis90};
     font-size: 24px;
     font-weight: 300;
@@ -63,11 +65,11 @@ export const ButtonContainer = styled.div`
 
 export const ShortTitle = styled.div`
     color: ${({ theme }) => theme.colors.text.emphasis};
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 1.5;
-    margin: 0;
+    margin-top: 120px;
     text-align: center;
+    font-size: 48px;
+    font-weight: 100;
+    line-height: 1.25;
 
     @media (max-width: 768px) {
         line-height: 1.33;
