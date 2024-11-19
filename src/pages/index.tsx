@@ -1,5 +1,5 @@
 import Layout from "../layouts/BaseLayout"
-import Topbar from "../sections/Topbar"
+import Topbar from "../components/Topbar"
 import Header from "../sections/Header"
 import HeroPanel from "../sections/HeroPanel"
 import { graphql, PageProps } from "gatsby"

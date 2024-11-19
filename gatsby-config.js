@@ -17,7 +17,7 @@ module.exports = {
     title: `Exodus Frontend Test`,
     description: `Exodus Frontend Test`,
     author: `@tculig`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://exodus-cms-test.vercel.app/`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
