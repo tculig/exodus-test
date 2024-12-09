@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css"
+import GlobalProviders from './src/layouts/BaseLayout';
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -13,3 +14,7 @@ export const onClientEntry = () => {
     link.rel = "stylesheet";
     document.head.appendChild(link);
 };
+
+export const wrapRootElement = ({ element }) => (
+    <GlobalProviders>{element}</GlobalProviders>
+)

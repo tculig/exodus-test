@@ -1,4 +1,3 @@
-import Layout from "../layouts/BaseLayout"
 import Topbar from "../components/Topbar"
 import DownloadSection from "../sections/DownloadSection"
 import HeroPanel from "../sections/HeroPanel"
@@ -13,7 +12,7 @@ import styled from "styled-components"
 const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
   const navMenuItems = useNavItems();
   return (
-    <Layout>
+    <>
       <Topbar menuItems={navMenuItems} />
       <main>
         <BackgroundContainer>
@@ -33,7 +32,7 @@ const BitcoinWalletPage = ({ data }: PageProps<Queries.RootQuery>) => {
         </StyledGlobals.CenteredContainer>
       </main>
       <Footer />
-    </Layout>
+    </>
   )
 };
 

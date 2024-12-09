@@ -6,13 +6,12 @@ import { getLocalStorage, setLocalStorage } from '../../utils';
 import { ThemeVariant } from './types';
 
 const ThemeVariantProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [themeVariant, setThemeVariant] = useState(getLocalStorage<ThemeVariant>('themeVariant') || "dark");
+    const [themeVariant, setThemeVariant] = useState(getLocalStorage<ThemeVariant>('tihoExodusthemeVariant') ?? "dark");
 
     const toggleTheme = useCallback(() => {
-
         setThemeVariant(old => {
             const newVersion = old === "dark" ? "light" : "dark";
-            setLocalStorage('themeVariant', newVersion);
+            setLocalStorage('tihoExodusthemeVariant', newVersion);
             return newVersion;
         });
     }, [])

@@ -1,12 +1,14 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
- */
+import "bootstrap/dist/css/bootstrap.min.css"
+import GlobalProviders from './src/layouts/BaseLayout';
 
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
+export const onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: `en` })
 }
+
+
+export const wrapRootElement = ({ element }) => (
+  <GlobalProviders>{element}</GlobalProviders>
+)

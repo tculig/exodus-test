@@ -193,7 +193,7 @@ export const NavIcon = styled.i<NavbarIconProps>`
     transition: all 0.2s ease;
 
     &::after {
-        background: url(/assets/nav-icons-sprite.svg) no-repeat;
+        background: url(../../../images/nav-icons-sprite.svg) no-repeat;
         background-position: ${({ $iconOffset }) => `${$iconOffset}px`} 0;
         content: '';
         height: 100%;
